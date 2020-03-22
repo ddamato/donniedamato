@@ -59,6 +59,10 @@ p {
 }
 
 a {
+  color: var(--color-bgDark--primary);
+}
+
+.btn {
   display: inline-block;
   text-decoration: none;
   border: 2px solid var(--color-bgDark--primary);
@@ -77,7 +81,7 @@ a {
   background: var(--color-bgLight--primary);
 }
 
-a:before {
+.btn:before {
   content: "";
   background: var(--color-bgDark--primary);
   height: 100%;
@@ -91,11 +95,11 @@ a:before {
   opacity: 0;
 }
 
-a:hover {
+.btn:hover {
   color: var(--color-onDark--primary);
 }
 
-a:hover:before {
+.btn:hover:before {
   transform: skewx(-26.5deg) scalex(1);
   opacity: 1;
 }
