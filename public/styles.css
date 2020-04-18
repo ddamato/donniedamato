@@ -179,7 +179,7 @@ main > * {
   position: relative;
 }
 
-.content:after {
+.bkgd + .content:after {
   content: "";
   position: fixed;
   height: 100%;
@@ -199,7 +199,7 @@ main > * {
 .content h2 {
   position: relative;
   z-index: 1;
-  margin: 2rem 0;
+  margin: 4rem 0 2rem;
 }
 
 .content h2:before {
