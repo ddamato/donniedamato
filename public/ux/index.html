@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <title>Donnie D'Amato, User Experience Portfolio</title>
@@ -9,13 +9,19 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Sarabun" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Sarabun&display=swap" rel="preload" as="style">
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Sarabun&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Sarabun&display=swap" rel="stylesheet">
+    </noscript>
     <link type="text/css" href="../styles.css" rel="stylesheet"/>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-54428903-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag('js', new Date());
 
       gtag('config', 'UA-54428903-2');
@@ -31,61 +37,64 @@
         <h3>Why do we check the weather?</h3>
         <p>If you ask this to many people, a common answer is to prepare for the day. If it's going to rain, we might need an umbrella. If it's going to be warm, I might not need a jacket. We check the weather on any of the current weather apps today and it tells us there's precipitation, or a number of degress that the high temperature will be.
         <p>If it's 60 degrees today, what does that mean? Is it hotter than it was yesterday? How can you tell? Most often, without looking up historical data, your weather app doesn't tell you. You have to remember how 60 degrees feels and if you need a jacket or not.</p>
-        <blockquote>
-          <p>
-            <i class="quote quote-top"></i>
+          <blockquote>
+            <p>
+              <i class="quote quote-top"></i>
               As a person getting ready to go out of my home, I want the weather to tell me <strong>how much</strong> it has changed.
             <i class="quote quote-bottom"></i>
-          </p>
-        </blockquote>
-        <p>The solution is very simple. We save the forecast data from yesterday and compare to today. If there's a signifigant change, we notify the user with the qualities that have changed and by how much. They can make the determination on what to do with that information (bring an umbrella, wear a jacket).</p>
-        <p>The interaction is a simple button that asks for permission to lookup the user's location (or optional postal code input), and the result is a link to their area's weather feed. A user subscribes to a notification feed for weather in their area and they'll begin getting notified of signifigant changes.</p>
-        <p>Sometimes a single button can prepare you to tackle the coming days better than you did before.</p>
-        <a class="btn" href="https://deltazeus.com" target="_blank">Try out deltazeus</a>
-        <h2>willarrive.in</h2>
-        <h3>Reducing navigation</h3>
-        <p>Sometimes people get paralyzed by choice. This is common in navigational patterns with many options that a user can choose from. If we instead consider removing some choices from the main navigation, users may direct themselves toward their goal faster, thereby creating a better experience. This project is an exploration on how much navigation can be removed to get to a very specific user need.</p>
-        <blockquote>
-          <p>
-            <i class="quote quote-top"></i>
+            </p>
+          </blockquote>
+          <p>The solution is very simple. We save the forecast data from yesterday and compare to today. If there's a signifigant change, we notify the user with the qualities that have changed and by how much. They can make the determination on what to do with that information (bring an umbrella, wear a jacket).</p>
+          <p>The interaction is a simple button that asks for permission to lookup the user's location (or optional postal code input), and the result is a link to their area's weather feed. A user subscribes to a notification feed for weather in their area and they'll begin getting notified of signifigant changes.</p>
+          <p>Sometimes a single button can prepare you to tackle the coming days better than you did before.</p>
+          <a class="btn" href="https://deltazeus.com" target="_blank">Try out deltazeus</a>
+          <h2>willarrive.in</h2>
+          <h3>Reducing navigation</h3>
+          <p>Sometimes people get paralyzed by choice. This is common in navigational patterns with many options that a user can choose from. If we instead consider removing some choices from the main navigation, users may direct themselves toward their goal faster, thereby creating a better experience. This project is an exploration on how much navigation can be removed to get to a very specific user need.</p>
+          <blockquote>
+            <p>
+              <i class="quote quote-top"></i>
               As a person getting ready to commute in New York City, I want to know when the next train is arriving for <strong>the line I take most frequently</strong> at my location.
             <i class="quote quote-bottom"></i>
-          </p>
-        </blockquote>
-        <p>The problem has a few asks; the user wants: </p>
-        <ul>
-          <li>The time(s) of the next arriving train</li>
-          <li>For a specific line</li>
-          <li>At their current location</li>
-        </ul>
-        <p>A common solution would be to provide an app that allows the user to choose the line from a menu, choose the station that is closest to them and find the next arrival time from the given schedule. Oh, and don't forget what direction they will travelling in, that's another choice the user needs to make. How can reduce the steps?
+            </p>
+          </blockquote>
+          <p>The problem has a few asks; the user wants: </p>
+          <ul>
+            <li>The time(s) of the next arriving train</li>
+            <li>For a specific line</li>
+            <li>At their current location</li>
+          </ul>
+          <p>A common solution would be to provide an app that allows the user to choose the line from a menu, choose the station that is closest to them and find the next arrival time from the given schedule. Oh, and don't forget what direction they will travelling in, that's another choice the user needs to make. How can reduce the steps?
         <p>We certainly can take out a step with geopositioning; the app can determine the closest station but perhaps we remove another step. However, can we remove the selection menus entirely?</p>
-        <p>Almost! The solution is to provide a dynamic URL scheme; <code>https://SUBWAY_LINE.willarrive.in</code> that a user can favorite in their web browser where <code>SUBWAY_LINE</code> is the number or letter that represents the subway to which the user needs the schedule. Examples:</p>
-        <ul>
-          <li><a href="https://f.willarrive.in" target="_blank">f.willarrive.in</a> (for the F line)</li>
-          <li><a href="https://6.willarrive.in" target="_blank">6.willarrive.in</a> (for the 6 line)</li>
-          <li><a href="https://a.willarrive.in" target="_blank">a.willarrive.in</a> (for the A line)</li>
-        </ul>
-        <p>The only selection the user needs to make is the direction they are traveling. Certainly, if the user is at a terminal, we can simply provide the only direction we expect them to travel in. For stations located in the middle of the line, even the most accurate positioning will be confused within a subway station with some direction from the user. This ask has very little congitive load, since the choice is presented as either this way or that way (eg: uptown or downtown, Manhattan-bound or Brooklyn-bound).</p>
-        <p>Removing choices for the user can mean the difference between getting to an appointment on time or seeing the doors close from a missed opportunity.</p>
-        <a class="btn" href="https://willarrive.in" target="_blank">Try out willarrive.in</a>
-        <h2>DOM-Tricks</h2>
-        <h3>Self-fulfilling examples</h3>
-        <p>One of the parts of the product development process that is often overlooked is quality documentation. So much time is spent curating the best experience or delivering performant code that many forget to provide resources into this task. Granted, it could be said that the best experiences do not require documentation but in the world of development, being verbose might mean more code.</p>
-        <p>To create documentation for engineers, it is often rewritten or curated as a translation from the source code. This takes time to edit and methods (eg: <a href="https://www.markdownguide.org/" target="_blank">Markdown</a>) have helped speed up the process but can we just use the code we've written as the documentation?</p>
-        <blockquote>
-          <p>
-            <i class="quote quote-top"></i>
+            <p>Almost! The solution is to provide a dynamic URL scheme; <code>https://SUBWAY_LINE.willarrive.in</code> that a user can favorite in their web browser where <code>SUBWAY_LINE</code> is the number or letter that represents the subway to which the user needs the schedule. Examples:</p>
+            <ul>
+              <li>
+                <a href="https://f.willarrive.in" target="_blank">f.willarrive.in</a> (for the F line)</li>
+              <li>
+                <a href="https://6.willarrive.in" target="_blank">6.willarrive.in</a> (for the 6 line)</li>
+              <li>
+                <a href="https://a.willarrive.in" target="_blank">a.willarrive.in</a> (for the A line)</li>
+            </ul>
+            <p>The only selection the user needs to make is the direction they are traveling. Certainly, if the user is at a terminal, we can simply provide the only direction we expect them to travel in. For stations located in the middle of the line, even the most accurate positioning will be confused within a subway station with some direction from the user. This ask has very little congitive load, since the choice is presented as either this way or that way (eg: uptown or downtown, Manhattan-bound or Brooklyn-bound).</p>
+            <p>Removing choices for the user can mean the difference between getting to an appointment on time or seeing the doors close from a missed opportunity.</p>
+            <a class="btn" href="https://willarrive.in" target="_blank">Try out willarrive.in</a>
+            <h2>DOM-Tricks</h2>
+            <h3>Self-fulfilling examples</h3>
+            <p>One of the parts of the product development process that is often overlooked is quality documentation. So much time is spent curating the best experience or delivering performant code that many forget to provide resources into this task. Granted, it could be said that the best experiences do not require documentation but in the world of development, being verbose might mean more code.</p>
+            <p>To create documentation for engineers, it is often rewritten or curated as a translation from the source code. This takes time to edit and methods (eg: <a href="https://www.markdownguide.org/" target="_blank">Markdown</a>) have helped speed up the process but can we just use the code we've written as the documentation?</p>
+            <blockquote>
+              <p>
+                <i class="quote quote-top"></i>
               As a person writing code, I want to provide documentation <strong>without rewriting</strong> what was written as documentation.
             <i class="quote quote-bottom"></i>
-          </p>
-        </blockquote>
-        <p>The solution was a proof-of-concept to document the code within the code using <a href="https://jsdoc.app/" target="_blank">JSDocs</a> (ie: comments that live with the code) and having a process that runs to combine the commented documentation with the code itself. Examples are written as testable code to provide quality code coverage.</p>
-        <p>Enhancing the developer experience is important to keep focus on when creating performant quality products. This allows teams to move fast <em>without</em> breaking things and instead providing clarity for future collaborators.</p>
-        <a class="btn" href="https://dom-tricks.com" target="_blank">Try out DOM-Tricks</a>
-        <p>
-          <a href="../">Go back to donniedamato.info</a>
-        </p>
-    </div>
-  </body>
-</html>
+              </p>
+            </blockquote>
+            <p>The solution was a proof-of-concept to document the code within the code using <a href="https://jsdoc.app/" target="_blank">JSDocs</a> (ie: comments that live with the code) and having a process that runs to combine the commented documentation with the code itself. Examples are written as testable code to provide quality code coverage.</p>
+            <p>Enhancing the developer experience is important to keep focus on when creating performant quality products. This allows teams to move fast <em>without</em> breaking things and instead providing clarity for future collaborators.</p>
+            <a class="btn" href="https://dom-tricks.com" target="_blank">Try out DOM-Tricks</a>
+            <p>
+              <a href="../">Go back to donniedamato.info</a>
+            </p>
+          </div>
+        </body>
+      </html>
