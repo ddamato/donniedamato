@@ -1,0 +1,59 @@
+:host {
+  --backgroundColor: red;
+  --foregroundColor: #111;
+}
+
+:host([color="pink"]) {
+  --backgroundColor: rgb(240, 110, 170);
+}
+
+:host([color="yellow"]) {
+  --backgroundColor: rgb(250, 210, 66);
+}
+
+:host([color="green"]) {
+  --backgroundColor: rgb(200, 216, 60);
+}
+
+:host([color="orange"]) {
+  --backgroundColor: rgb(250, 175, 50);
+}
+
+:host([color="blue"]) {
+  --backgroundColor: rgb(70, 190, 230);
+}
+
+
+.note {
+  background: var(--backgroundColor);
+  color: var(--foregroundColor);
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 6px 10px 2px rgba(50, 50, 50, .2);
+  transform-origin: center top;
+  transform: translatey(0) translatez(0) rotatex(0) rotatez(var(--rotatez, 0));
+  cursor: pointer;
+  transition: transform .218s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  font-size: 1.5em;
+  box-sizing: border-box;
+}
+
+.note:before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  display: block;
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.1) 6%,rgba(67,67,67,0.1) 15%,rgba(255,255,255,0) 25%);
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 6%, rgba(67,67,67,0.1) 15%, rgba(255,255,255,0) 25%);
+  background: linear-gradient(to bottom,  rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.1) 6%,rgba(67,67,67,0.1) 15%,rgba(255,255,255,0) 25%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a000000', endColorstr='#00ffffff',GradientType=0 );
+  position: absolute;
+}
+
+.note:hover {
+ transform: translatey(0) translatez(0) rotatex(12deg) rotatez(var(--rotatez, 0));
+}
