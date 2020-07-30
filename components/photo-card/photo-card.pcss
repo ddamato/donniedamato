@@ -1,0 +1,78 @@
+::slotted(p) {
+  margin: 2.5ch;
+}
+
+slot[name="title"]::slotted(*) {
+  font-size: 3rem;
+  font-family: "Permanent Marker" !important;
+  line-height: 1;
+  margin: .5em !important;
+}
+
+.photo-card {
+  line-height: 1.5;
+  background-image: linear-gradient(#ffdb00 1px, #ffffb4 0);
+  background-size: 100% 2.5ch;
+  background-position-y: 0;
+  box-shadow: 0 2px 6px 2px rgba(50, 50, 50, .2);
+  transform: rotate(2deg);
+  margin: 2rem 1rem;
+  max-width: 8in;
+}
+
+.photo {
+  position: relative;
+  float: left;
+  background-color: white;
+  padding: 1rem;
+  padding-bottom: 3rem;
+  box-shadow: 0 2px 6px 2px rgba(50, 50, 50, .2);
+  transform: rotate(-5deg);
+  margin-right: 1rem;
+  width: 40%;
+  max-width: 200px;
+  border-bottom: 1px solid rgba(50, 50, 50, .3);
+}
+
+.photo img {
+  width: 100%;
+  filter: sepia(1) saturate(2);
+}
+
+.paperclip {
+  --paperclip-thickness: 3px;
+  --paperclip-width: 1rem;
+  bottom: 100%;
+  transform-origin: 100% 25%;
+  transform: translatey(75%) rotate(10deg);
+  margin-bottom: 2px;
+  left: 50%;
+  position: absolute;
+  display: inline-flex;
+  flex-direction: column;
+  width: var(--paperclip-width);
+  z-index: 1;
+}
+
+.paperclip:before, .paperclip:after {
+  content:'';
+  border: var(--paperclip-thickness) groove #333;
+}
+
+.paperclip:before {
+  padding-top: 100%;
+  width: 100%;
+  border-radius: 2rem 2rem 0 0;
+  border-bottom: none;
+}
+
+.paperclip:after {
+  padding-top: 300%;
+  width: calc(100% - var(--paperclip-thickness));
+  border-radius: 0 0 2rem 2rem;
+  border-top: none;
+}
+
+.card {
+  padding: 1px 1rem 2rem;
+}

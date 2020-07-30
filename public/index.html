@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <meta charset="UTF-8">
     <title>Donnie D'Amato, Design Systems Architect</title>
     <meta name="description" content="Senior UX Engineer based in New York City Architect of large-scale design systems living at the intersection product design and engineering">
@@ -9,11 +10,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Permanent+Marker&display=swap" rel="preload" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Permanent+Marker&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript>
-     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Permanent+Marker&display=swap" rel="stylesheet">
-    </noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Permanent+Marker&display=swap" rel="stylesheet">
     <link type="text/css" href="styles.css" rel="stylesheet"/>
     <script src="components.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -28,13 +25,38 @@
 
   </head>
   <body>
-    <nav>
-      <sticky-note color="pink">About</sticky-note>
-      <sticky-note color="yellow">Design</sticky-note>
-      <sticky-note color="green">Develop</sticky-note>
-      <sticky-note color="orange">Teach</sticky-note>
-      <sticky-note color="blue">Contact</sticky-note>
-    </nav>
+    <main>
+      <header>
+        <nav>
+          <sticky-note>About</sticky-note>
+          <sticky-note>Design</sticky-note>
+          <sticky-note>Develop</sticky-note>
+          <sticky-note>Teach</sticky-note>
+          <sticky-note>Contact</sticky-note>
+        </nav>
+        <div class="hero">
+          <h1>Donnie D'Amato</h1>
+          <h2>Design Systems Architect</h2>
+          <p>[dɪˈzaɪn ˈsɪstɪmz ˈɑːkɪtɛkt] <button class="speak"></button></p>
+          <strong><em>&mdash;noun</em></strong>
+          <ol>
+            <li>User experience</li>
+            <li>User experience</li>
+            <li>User experience</li>
+            <li>User experience</li>
+          </ol>
+        </div>
+      </header>
+      <section>
+        <photo-card>
+          <h2 slot="title">Title of project</h2>
+          <p>Put a bird on it VHS whatever hammock, hashtag man braid craft beer leggings. Subway tile glossier bespoke pug, truffaut polaroid blog tacos single-origin coffee iceland lumbersexual squid humblebrag portland raw denim. Freegan YOLO post-ironic gluten-free cornhole af coloring book put a bird on it. Adaptogen distillery retro salvia lumbersexual 8-bit offal intelligentsia. Af succulents iceland yr polaroid raclette street art 8-bit. Post-ironic hashtag man braid keffiyeh subway tile, polaroid craft beer narwhal VHS 3 wolf moon humblebrag fixie occupy whatever.</p>
+          <p>Put a bird on it VHS whatever hammock, hashtag man braid craft beer leggings. Subway tile glossier bespoke pug, truffaut polaroid blog tacos single-origin coffee iceland lumbersexual squid humblebrag portland raw denim. Freegan YOLO post-ironic gluten-free cornhole af coloring book put a bird on it. Adaptogen distillery retro salvia lumbersexual 8-bit offal intelligentsia. Af succulents iceland yr polaroid raclette street art 8-bit. Post-ironic hashtag man braid keffiyeh subway tile, polaroid craft beer narwhal VHS 3 wolf moon humblebrag fixie occupy whatever.</p>
+        </photo-card>
+      </section>
+      <footer></footer>
+    </main>
     <drop-note></drop-note>
+    <script src="speak.js"></script>
   </body>
 </html>

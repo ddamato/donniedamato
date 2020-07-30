@@ -5,6 +5,7 @@
   top: 0;
   left: 0;
   pointer-events: none;
+  perspective: 1000px;
 }
 
 sticky-note {
@@ -12,8 +13,9 @@ sticky-note {
   position: absolute;
   top: var(--note-top, 0);
   left: var(--note-left, 0);
-  transform: translatey(0) translatez(0) rotatex(10deg);
-  filter: brightness(1);
+  transform: translatey(0) translatez(10px) rotatex(10deg);
+  transform-origin: center center;
+  filter: brightness(1) drop-shadow(0 10px 12px rgba(50, 50, 50, .3));
   opacity: 1;
   transition: opacity .1s ease-in;
 }
@@ -28,11 +30,11 @@ sticky-note.drop {
 
 @keyframes notedrop {
   from {
-		transform: translatey(0) translatez(0) rotatex(10deg);
-		filter: brightness(1);
+		transform: translatey(0) translatez(10px) rotatex(10deg);
+		filter: brightness(1) drop-shadow(0 10px 12px rgba(50, 50, 50, .3));
 	}
 	to {
 		transform: translatey(150vh) translatez(0) rotatex(80deg);
-		filter: brightness(1.4);
+		filter: brightness(1.4) drop-shadow(0 10px 12px rgba(50, 50, 50, .4));
 	}
 }

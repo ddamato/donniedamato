@@ -11,6 +11,13 @@ export default class StickyNote extends HTMLElement {
     this.addEventListener('mousedown', (ev) => this._onMousedown(ev));
   }
 
+  connectedCallback() {
+    if (!this.style.getPropertyValue('--rotatez')) {
+      const randomRotation = (max, min) => Math.random() * (max - min) + min;
+      this.style.setProperty('--rotatez', `${randomRotation(-10, 10)}deg`);
+    }
+  }
+
   _onMousedown(ev) {
     ev.preventDefault();
 
@@ -41,15 +48,9 @@ export default class StickyNote extends HTMLElement {
   _createClone(ev) {
     const elem = this.cloneNode(true);
     const boundingClientRect = this.getBoundingClientRect();
-    const style = window.getComputedStyle(this._originalNote);
+    const style = window.getComputedStyle(this);
     ['--backgroundColor', '--foregroundColor', '--rotatez', 'height', 'width'].forEach((prop) => {
       elem.style.setProperty(prop, style.getPropertyValue(prop));
-    });
-    elem.classList.add('hidden');
-
-    elem.addEventListener('animationend', () => {
-      elem.remove();
-      this._removeClones();
     });
 
     this._cloneNote = {
@@ -74,18 +75,13 @@ export default class StickyNote extends HTMLElement {
     }
   }
 
-  _removeClones() {
-    this._cloneNote = null;
-    this._dropzone.remove();
-  }
-
   _onMouseup() {
     clearTimeout(this._timeout);
     if (!this._cloneNote) {
-      this._removeClones();
       this.dispatchEvent(new CustomEvent('click'));
     } else {
       this._cloneNote.elem.classList.add('drop');
+      this._cloneNote = null;
     }
 
     if (this._mousemove) {
