@@ -1,0 +1,81 @@
+:host, :host * {
+  box-sizing: border-box;
+}
+
+.photo-frame {
+  padding: 1rem 1rem 0;
+  border: 2vw solid;
+  border-top-color: #000;
+  border-left-color: #111;
+  border-right-color: #222;
+  border-bottom-color: #333;
+  background-color: #e0e0e0;
+  position: relative;
+  margin: 0;
+}
+
+.photo-frame:before {
+  content: '';
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0));
+  z-index: 2;
+  cursor: pointer;
+}
+
+.photo {
+  width: 100%;
+  border: 1px solid rgba(50, 50, 50, .1);
+  transition: .218s ease;
+}
+
+.photo-frame:hover .photo {
+  filter: sepia(1) saturate(2) brightness(.2);
+}
+
+.hero {
+  position: relative;
+}
+
+.caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  color: #fff;
+  opacity: 0;
+  transform: scale(.9);
+  transition: .4s ease-out;
+}
+
+.photo-frame:hover .caption {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.headline {
+  font-family: "Abril Fatface";
+  font-size: 2rem;
+  margin: 0;
+}
+
+.metadata {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid;
+  margin-top: .5rem;
+  padding-top: .5rem;
+}
+
+.content {
+  margin-bottom: 1rem;
+}
