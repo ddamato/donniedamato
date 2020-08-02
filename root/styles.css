@@ -13,7 +13,7 @@ body {
   font-family: "Courier";
   background-color: #fdd900;
 
-  background-image: url(./yellow-bkgd-top.jpg), url(./yellow-bkgd-bottom.jpg);
+  background-image: url(./images/yellow-bkgd-top.jpg), url(./images/yellow-bkgd-bottom.jpg);
   background-repeat: no-repeat;
   background-position: left top, right bottom;
   background-size: 300px, contain;
