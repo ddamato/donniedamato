@@ -10,6 +10,8 @@ export default class PhotoFrame extends HTMLElement {
     this._frame = this.shadowRoot.querySelector('.photo-frame');
     this._img = this.shadowRoot.querySelector('.photo-aspect');
     this._headline = this.shadowRoot.querySelector('.headline');
+    this._year = this.shadowRoot.querySelector('.year');
+    this._summary = this.shadowRoot.querySelector('.summary');
     this._link = this.shadowRoot.querySelector('.link');
     this._closeButton = this.shadowRoot.querySelector('.close-button');
 
@@ -80,7 +82,7 @@ export default class PhotoFrame extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['image', 'headline', 'link'];
+    return ['image', 'headline', 'link', 'year', 'summary'];
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
@@ -95,6 +97,14 @@ export default class PhotoFrame extends HTMLElement {
     if (attrName === 'link') {
       this._link.href = newVal;
       this._link.textContent = newVal;
+    }
+
+    if (attrName === 'year') {
+      this._year.textContent = newVal;
+    }
+
+    if (attrName === 'summary') {
+      this._summary.textContent = newVal;
     }
   }
 }

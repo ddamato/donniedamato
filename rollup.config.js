@@ -12,7 +12,7 @@ export default {
     terser(),
   ],
   output: {
-      file: './public/components.min.js',
+      file: './_site/components.min.js',
       format: 'iife',
       name: 'components'
   }
