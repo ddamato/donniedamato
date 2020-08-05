@@ -69,7 +69,11 @@ export default class StickyNotes extends HTMLElement {
   }
 
   _checkAlignment() {
-    const topAlignment = this._notes.filter((note) => note.offsetTop === this._notes[0].offsetTop).length;
+    const topAlignment = this._notes.filter((note) => {
+      const offsetMatch = note.offsetTop === this._notes[0].offsetTop;
+      const visible = note.classList.contains('hidden');
+      return offsetMatch;
+    }).length;
     if (!this._topAlignment || this._topAlignment !== topAlignment) {
       this._topAlignment = topAlignment;
       this._placeImages();
@@ -78,22 +82,27 @@ export default class StickyNotes extends HTMLElement {
 
   _placeImages() {
     const colAmount = this._topAlignment;
+
     const rowAmount = Math.ceil(this.amount / colAmount);
     const noteHeight = this._notes[0].offsetHeight;
     const noteWidth = this._notes[0].offsetHeight;
-    const threshold = Math.ceil(colAmount / rowAmount * colAmount * noteWidth / noteHeight) * noteHeight
+    const threshold = Math.ceil(colAmount / rowAmount * colAmount * noteWidth / noteHeight) * noteHeight;
+    console.log(threshold);
 
     const xPercent = 100 / (colAmount - 1);
+
+    const singleCol = colAmount === 1;
 
     this._notes.forEach((note, i) => {
       const x = i % colAmount;
       const y = Math.floor(i / colAmount);
-
       const yOffset = y * noteHeight;
       
-      if (yOffset > threshold) {
-        note.style.setProperty('background-image', `none`);
+      if (yOffset > threshold || (singleCol && i > 0)) {
+        note.classList.add('hidden');
+        note.style.setProperty('background-image', 'none');
       } else {
+        note.classList.remove('hidden');
         note.style.setProperty('background-image', `url(${this.image})`);
         note.style.setProperty('background-position', `${x * xPercent}% -${yOffset}px`);
         note.style.setProperty('background-size', `${colAmount * 100}%`);
