@@ -62,14 +62,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-}
-
-nav {
-  padding: 1rem;
-  display: flex;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  margin-left: 300px;
+  margin-top: 8rem;
 }
 
 .container {
@@ -110,17 +103,17 @@ footer {
 }
 
 .photo-gallery {
+  --photo-columns: 3;
   position: relative;
 }
 
 .photo-gallery:before {
   content: '';
   display: block;
-  padding-top: 200%;
+  padding-top: 170%;
 }
 
 .photo-frames {
-  --photo-columns: 2;
   position: absolute;
   top: 0;
   left: 0;
@@ -132,42 +125,66 @@ footer {
   padding: 1rem;
 }
 
-photo-frame {
-  box-shadow: 0 12px 16px -4px #6f6000;
-  width: calc(100% / var(--photo-columns) - 1rem);
-  margin-bottom: 3rem;
-  margin: auto;
-}
-
-photo-frame:nth-child(odd) {
-  order: 1;
-}
-
-photo-frame:nth-child(even) {
+.photo-frames:before,
+.photo-frames:after {
+  content: '';
+  flex-basis: 100%;
+  width: 0;
   order: 2;
 }
 
-photo-frame:nth-child(3n+1) {
-  width: calc(80% / var(--photo-columns) - 1rem);
+.photo-frame {
+  box-shadow: 0 12px 16px -4px #6f6000;
+  width: calc(100% / var(--photo-columns) - 2rem);
+  margin: 0 auto 2rem;
 }
 
-photo-frame:nth-child(3n+2) {
-  width: calc(90% / var(--photo-columns) - 1rem);
+.photo-frame:nth-child(3n+1) {
+  order: 1;
 }
 
-@media (max-width: 700px) {
+.photo-frame:nth-child(3n+2) {
+  order: 2;
+}
+
+.photo-frame:nth-child(3n+3) {
+  order: 3;
+}
+
+@media (max-width: 800px) {
+  .photo-gallery {
+    --photo-columns: 2;
+  }
+
+  .photo-gallery:before {
+    padding-top: 380%;
+  }
+
+  .photo-frame:nth-child(2n+1) {
+    order: 1;
+  }
+  
+  .photo-frame:nth-child(2n+2) {
+    order: 2;
+  }
+}
+
+@media (max-width: 500px) {
+  .photo-gallery {
+    --photo-columns: 1;
+  }
+
   .photo-gallery:before {
     display: none;
   }
 
   .photo-frames {
-    --photo-columns: 1;
     position: static;
     flex-flow: column nowrap;
   }
 
-  photo-frame {
-    margin: auto auto 1rem;
-    order: initial !important;
+  .photo-frame:nth-child(n) {
+    order: initial;
+    margin-bottom: 1rem;
   }
 }

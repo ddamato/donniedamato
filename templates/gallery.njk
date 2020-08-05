@@ -1,8 +1,14 @@
 <section class="photo-gallery container">
   <div class="photo-frames">
     {% for item in gallery %}
-      <photo-frame image="{{ item.image }}" headline="{{ item.headline }}" year="{{ item.year }}" link="{{ item.link }}">
-        {{ item.content | safe }}
+      <photo-frame
+        class="photo-frame"
+        image="{{ item.image }}"
+        headline="{{ item.headline }}"
+        year="{{ item.year }}"
+        link="{{ item.link }}"
+        summary="{{ item.summary }}">
+          {{ item.content | safe }}
       </photo-frame>
     {% endfor %}
   </div>

@@ -96,7 +96,7 @@ export default class PhotoFrame extends HTMLElement {
 
     if (attrName === 'link') {
       this._link.href = newVal;
-      this._link.textContent = newVal;
+      this._link.textContent = newVal.replace(/(^\w+:|^)\/\//, '');;
     }
 
     if (attrName === 'year') {

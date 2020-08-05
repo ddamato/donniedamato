@@ -37,10 +37,10 @@
 .photo-aspect {
   width: 100%;
   transition: filter ease-in-out .4s;
+  border: 1px solid rgba(50, 50, 50, .2);
 }
 
-.photo-frame:hover .photo-aspect,
-.photo-frame.fixed-focus .photo-aspect {
+.photo-frame:not(.fixed-focus):hover .photo-aspect {
   filter: sepia(1) saturate(2) brightness(.2);
 }
 
@@ -50,7 +50,12 @@
   margin-left: auto;
 }
 
+.photo-frame.fixed-focus .hero {
+  width: min-content;
+}
+
 .caption {
+  text-align: right;
   position: absolute;
   top: 0;
   left: 0;
@@ -59,17 +64,26 @@
   padding: 1rem;
   color: #fff;
   opacity: 0;
-  transition: .1s ease-out;
+  transition: opacity 0s linear;
+}
+
+.photo-frame.fixed-focus .caption {
+  position: relative;
+  padding: 0;
+  color: #000;
+  height: auto;
+  margin-top: 1rem;
 }
 
 .photo-frame:hover .caption,
 .photo-frame.fixed-focus .caption {
   opacity: 1;
+  transition: opacity .1s ease-out;
 }
 
 .headline {
   font-family: "Abril Fatface";
-  font-size: 2rem;
+  font-size: min(1.6rem, 5vw);
   margin: 0;
   line-height: 1;
   transform: translateY(-1em);
@@ -85,17 +99,12 @@
   font-weight: bold;
 }
 
-.summary:before {
+.year:before {
   content: '';
   display: block;
   width: 2ch;
   border-bottom: 1px solid;
-  margin: .5rem 0;
-}
-
-.summary {
-  font-size: .8em;
-  opacity: .6;
+  margin: .5rem 0 .5rem auto;
 }
 
 .photo-frame.fixed-focus {
@@ -104,60 +113,97 @@
   z-index: 2;
   overscroll-behavior-y: contain;
   display: flex;
+  align-items: flex-start;
 }
 
-.aside {
-  display: none;
-  flex-direction: column;
-  align-items: flex-end;
-  position: relative;
+.header {
+  margin-bottom: .5rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: .8em;
+  border-bottom: 1px solid;
+  padding-bottom: .5rem;
+  line-height: 1;
 }
 
 .link {
   color: inherit;
-  margin: 1rem 0;
-  padding-bottom: 2px;
-  text-decoration: none;
-  border-bottom: 1px solid #FDDB00;
-}
-
-.close-button {
-  background: #000;
-  color: #fff;
-  font: inherit;
-  font-weight: bold;
-  border: 1px solid;
-  padding: 1em;
-  font-size: .8em;
-  cursor: pointer;
-}
-
-.photo-frame.fixed-focus .aside {
-  display: flex;
 }
 
 .content {
   display: none;
   margin-left: 1rem;
   margin-right: auto;
-  max-width: 80ch;
+  max-width: 60ch;
+  align-self: stretch;
+  position: relative;
+  flex-direction: column;
+  flex: 1;
+}
+
+.photo-frame.fixed-focus .content {
+  display: flex;
+}
+
+.controls {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 2rem;
+}
+
+.controls svg {
+  height: 2em;
+  fill: currentcolor;
+}
+
+.top-button,
+.close-button {
+  background: #000;
+  color: #fff;
+  font: inherit;
+  font-weight: bold;
+  border: 1px solid;
+  padding: .5em;
+  cursor: pointer;
+  border: 2px solid;
 }
 
 slot:not([name])::slotted(:first-child) {
   margin-top: 0;
 }
 
-.photo-frame.fixed-focus .content {
-  display: block;
-}
-
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .photo-frame.fixed-focus {
     flex-direction: column;
+  }
+
+  .photo-frame.fixed-focus .hero {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .photo-frame.fixed-focus .caption {
+    margin-right: 1rem;
+    margin-top: 0;
   }
 
   .content {
     margin-left: 0;
     margin-top: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .headline {
+    font-size: 7vw;
+  }
+
+  .photo-frame.fixed-focus .hero {
+    flex-direction: column-reverse;
+  }
+
+  .photo-frame.fixed-focus .photo-aspect[style] {
+    width: 100% !important;
   }
 }
