@@ -41,7 +41,7 @@ export default class StickyNotes extends HTMLElement {
     this._notes.forEach((note, i) => {
       const x = i % colAmount;
       const y = Math.floor(i / colAmount);
-
+      const randSeconds = Math.random() * 3;
       const t = y * yPercent;
       const b = 100 - (t + yPercent);
       const l = x * xPercent;
@@ -53,6 +53,7 @@ export default class StickyNotes extends HTMLElement {
       note.style.setProperty('--origin-width', xPercent + '%');
       note.style.setProperty('--origin-height', yPercent + '%');
       note.style.setProperty('--origin-z', rowAmount - y);
+      note.style.setProperty('--origin-delay', randSeconds + 's');
     });
   }
 }

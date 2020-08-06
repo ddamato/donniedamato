@@ -25,16 +25,21 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  top: 0;
-  left: 0;
+  top: var(--offset-top, 0);
+  left: var(--offset-left, 0);
   clip-path: inset(var(--origin-top) var(--origin-right) var(--origin-bottom) var(--origin-left));
-  transform: rotatez(var(--rotatez));
-  transform-origin: var(--origin-left) var(--origin-top);
+  transform: rotatex(10deg) rotatez(var(--rotatez));
   transition: .218s ease;
+  animation: wind 10s var(--origin-delay) infinite alternate ease-in-out;
+  transform-origin: var(--origin-left) var(--origin-top);
+  filter: brightness(1);
 }
 
 .sticky-note:hover:after {
   transform: rotatex(30deg) rotatez(var(--rotatez));
+  filter: brightness(1.1);
+  animation: none;
+  cursor: grab;
 }
 
 .sticky-note:before {
@@ -50,10 +55,19 @@
   pointer-events: none;
   transform: rotatez(var(--rotatez));
   opacity: .3;
-  box-shadow: 0 0 10px 8px #333;
+  box-shadow: 0 0 10px 8px #333, 0 4px 10px 8px #444;
 }
 
 .sticky-note:hover:before {
-  height: calc(var(--origin-height) - 1rem);
+  height: calc(var(--origin-height) - 1.5rem);
   opacity: .2;
+}
+
+@keyframes wind {
+  0% { transform: rotatex(10deg) rotatez(var(--rotatez)); }
+  20% { transform: rotatex(25deg) rotatez(var(--rotatez)); }
+  40% { transform: rotatex(16deg) rotatez(var(--rotatez)); }
+  60% { transform: rotatex(22deg) rotatez(var(--rotatez)); }
+  80% { transform: rotatex(13deg) rotatez(var(--rotatez)); }
+  100% { transform: rotatex(10deg) rotatez(var(--rotatez)); }
 }

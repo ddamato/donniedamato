@@ -70,6 +70,11 @@ header {
   width: 100%;
 }
 
+.sticky-notes {
+  margin: 0 0 8vw;
+  display: block;
+}
+
 .hero {
   margin: auto;
   padding: 3rem;
@@ -77,18 +82,19 @@ header {
 
 .hero h2,
 .pronounciation {
-  margin: .5em 0;
+  margin: 2.5ch 0;
 }
 
 .hero ol {
   counter-reset: item;
   padding-left: 0;
+  margin: 2.5ch 0;
 }
 
 .hero li {
   display: flex;
   counter-increment: item;
-  margin-bottom: 1em;
+  margin-bottom: 2.5ch;
 }
 
 .hero li:before {
