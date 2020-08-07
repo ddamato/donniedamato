@@ -27,7 +27,6 @@ export default class StickyNotes extends HTMLElement {
     this._setTilt(note);
     note.addEventListener('mousedown', (ev) => this._onMousedown(ev));
     note.addEventListener('animationend', (ev) => this._onDropEnd(ev));
-    note.addEventListener('transitionend', (ev) => this._onStickEnd(ev));
     return note;
   }
 
@@ -42,17 +41,11 @@ export default class StickyNotes extends HTMLElement {
     if (ev.animationName === 'drop') {
       this._setTilt(ev.target);
       ev.target.classList.remove('dropped');
-      ev.target.classList.add('stick');
+      ev.target.classList.add('hidden');
       this._move(0, 0);
       this._target = null;
+      this.removeAttribute('disabled');
     }
-  }
-
-  _onStickEnd(ev) {
-    if (ev.target.classList.contains('stick')) {
-      ev.target.classList.remove('stick');
-    }
-    this.removeAttribute('disabled');
   }
 
   _onMousedown(ev) {

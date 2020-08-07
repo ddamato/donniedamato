@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -68,36 +72,33 @@ header {
   max-width: 900px;
   margin: 0 auto;
   width: 100%;
+  display: block;
+  padding: 4vw 1rem;
 }
 
 .sticky-notes {
-  margin: 0 0 8vw;
-  display: block;
+  min-height: 100vh;
+  padding: 0 2rem;
 }
 
-.hero {
-  margin: auto;
-  padding: 3rem;
-}
-
-.hero h2,
-.pronounciation {
+photo-card h2,
+photo-card .pronounciation {
   margin: 2.5ch 0;
 }
 
-.hero ol {
+photo-card ol {
   counter-reset: item;
   padding-left: 0;
   margin: 2.5ch 0;
 }
 
-.hero li {
+photo-card li {
   display: flex;
   counter-increment: item;
   margin-bottom: 2.5ch;
 }
 
-.hero li:before {
+photo-card li:before {
   content: counter(item) ".";
   font-weight: bold;
   margin-right: 1ch;

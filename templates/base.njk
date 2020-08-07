@@ -5,24 +5,21 @@
   </head>
   <body>
     <main>
-      <header>
-        <div class="hero container">
-          <sticky-notes class="sticky-notes">
-            <h1>Donnie D’Amato</h1>
-          </sticky-notes>
-          <photo-card>
-            <h2 slot="title">Design Systems Architect</h2>
-            <p class="pronounciation">[dɪˈzaɪn ˈsɪstɪmz ˈɑːkɪtɛkt] <speak-button>Design Systems Architect</speak-button></p>
-            <strong><em>&mdash;noun</em></strong>
-            <ol>
-              <li>Waistcoat heirloom kogi biodiesel succulents slow-carb godard jianbing, VHS artisan.</li>
-              <li>Thundercats jean shorts gentrify, brunch lyft etsy stumptown hella vinyl irony leggings chillwave lomo PBR&B.</li>
-              <li>Hexagon gluten-free butcher stumptown glossier keffiyeh.</li>
-              <li>Wolf pop-up brooklyn bitters fam raw denim.</li>
-            </ol>
-          </photo-card>
-        </div>
-      </header>
+      <header></header>
+      <sticky-notes class="sticky-notes container">
+        <h1>Donnie D’Amato</h1>
+      </sticky-notes>
+      <photo-card class="container" id="about">
+        <h2 slot="title">Design Systems Architect</h2>
+        <p class="pronounciation">[dɪˈzaɪn ˈsɪstɪmz ˈɑːkɪtɛkt] <speak-button>Design Systems Architect</speak-button></p>
+        <strong><em>&mdash;noun</em></strong>
+        <ol>
+          <li>Waistcoat heirloom kogi biodiesel succulents slow-carb godard jianbing, VHS artisan.</li>
+          <li>Thundercats jean shorts gentrify, brunch lyft etsy stumptown hella vinyl irony leggings chillwave lomo PBR&B.</li>
+          <li>Hexagon gluten-free butcher stumptown glossier keffiyeh.</li>
+          <li>Wolf pop-up brooklyn bitters fam raw denim.</li>
+        </ol>
+      </photo-card>
       {% include "gallery.njk" %}
       <hr/>
       <footer></footer>

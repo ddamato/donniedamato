@@ -1,17 +1,37 @@
+:host {
+  display: flex !important;
+  flex: 1;
+}
+
 :host([disabled]) {
   pointer-events: none;
+}
+
+.scroll-down {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font: inherit;
+  background: transparent;
+  color: inherit;
+  font-family: "Abril Fatface";
+  font-size: min(1.6rem, 5vw);
+  border: 0;
 }
 
 .sticky-notes {
   display: flex;
   flex-wrap: wrap;
+  margin: auto;
+  max-width: 600px;
   justify-content: flex-start;
-  max-width: 500px;
-  margin: 0 auto;
   position: relative;
   perspective: 1000px;
   perspective-origin: center top;
   z-index: 1;
+  flex: 1;
+  pointer-events: none;
 }
 
 .sticky-note {
@@ -39,6 +59,7 @@
   transform-origin: calc(var(--origin-left) + var(--origin-width) / 2) var(--origin-top);
   filter: brightness(1);
   opacity: 1;
+  pointer-events: initial;
 }
 
 .sticky-note:hover:after {
@@ -70,8 +91,7 @@
 }
 
 .sticky-note.grabbed,
-.sticky-note.dropped,
-.sticky-note.stick {
+.sticky-note.dropped {
   z-index: 20;
 }
 
@@ -90,22 +110,13 @@
   animation: drop .5s ease-in forwards;
 }
 
-.sticky-note.stick,
-.sticky-note.stick:after {
-  pointer-events: none;
-}
-
-.sticky-note.stick:before {
-  opacity: 0;
-  transition: .4s ease;
-}
-
-.sticky-note.stick:after {
+.sticky-note.hidden,
+.sticky-note.hidden:before,
+.sticky-note.hidden:after {
   animation: none;
-  transform-origin: calc(var(--origin-left) + var(--origin-width) / 2) calc(var(--origin-top) + var(--origin-height) / 2);
-  transform: translate(var(--offset-left, 0px), var(--offset-top, 0px)) rotatex(10deg) rotatez(var(--rotatez)) scale(4);
+  transition: none;
   opacity: 0;
-  transition: .4s ease;
+  pointer-events: none;
 }
 
 @keyframes wind {
