@@ -24,18 +24,23 @@ export default class StickyNotes extends HTMLElement {
   _createNote() {
     const note = document.createElement('div');
     note.classList.add('sticky-note');
-    const tiltMax = 5;
-    const tiltMin = -5;
-    const tilt = Math.floor(Math.random() * (tiltMax - tiltMin + 1) + tiltMin);
-    note.style.setProperty('--rotatez', tilt + 'deg');
+    this._setTilt(note);
     note.addEventListener('mousedown', (ev) => this._onMousedown(ev));
     note.addEventListener('animationend', (ev) => this._onDropEnd(ev));
     note.addEventListener('transitionend', (ev) => this._onStickEnd(ev));
     return note;
   }
 
+  _setTilt(note) {
+    const tiltMax = 5;
+    const tiltMin = -5;
+    const tilt = Math.floor(Math.random() * (tiltMax - tiltMin + 1) + tiltMin);
+    note.style.setProperty('--rotatez', tilt + 'deg');
+  }
+
   _onDropEnd(ev) {
     if (ev.animationName === 'drop') {
+      this._setTilt(ev.target);
       ev.target.classList.remove('dropped');
       ev.target.classList.add('stick');
       this._move(0, 0);

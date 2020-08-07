@@ -60,13 +60,13 @@
   transition: .2s ease;
   pointer-events: none;
   transform: translate(var(--offset-left, 0px), var(--offset-top, 0px)) rotatez(var(--rotatez));
-  opacity: .3;
+  opacity: .5;
   box-shadow: 0 0 10px 8px #333, 0 4px 10px 8px #444;
 }
 
 .sticky-note:hover:before {
   height: calc(var(--origin-height) - 1.5rem);
-  opacity: .2;
+  opacity: .4;
 }
 
 .sticky-note.grabbed,
@@ -82,7 +82,10 @@
   cursor: grabbing;
 }
 
-.sticky-note.dropped:before,
+.sticky-note.dropped:before {
+  animation: dropshadow .5s ease-in forwards;
+}
+
 .sticky-note.dropped:after {
   animation: drop .5s ease-in forwards;
 }
@@ -116,11 +119,18 @@
 
 @keyframes drop {
   99% { 
-    transform: translate(var(--offset-left, 0px), 100vh) rotatex(70deg) rotatez(var(--rotatez));
+    transform: translate(var(--offset-left, 0px), 100vh) rotatex(90deg) rotatez(var(--rotatez));
     filter: brightness(1.3);
     opacity: 1;
   }
   100% {
+    opacity: 0;
+  }
+}
+
+@keyframes dropshadow {
+  to { 
+    transform: translate(var(--offset-left, 0px), 100vh) rotatex(90deg) rotatez(var(--rotatez));
     opacity: 0;
   }
 }
