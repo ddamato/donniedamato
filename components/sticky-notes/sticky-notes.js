@@ -28,7 +28,61 @@ export default class StickyNotes extends HTMLElement {
     const tiltMin = -5;
     const tilt = Math.floor(Math.random() * (tiltMax - tiltMin + 1) + tiltMin);
     note.style.setProperty('--rotatez', tilt + 'deg');
+    note.addEventListener('mousedown', (ev) => this._onMousedown(ev));
+    note.addEventListener('animationend', (ev) => this._onDropEnd(ev));
+    note.addEventListener('transitionend', (ev) => this._onStickEnd(ev));
     return note;
+  }
+
+  _onDropEnd(ev) {
+    if (ev.animationName === 'drop') {
+      ev.target.classList.remove('dropped');
+      ev.target.classList.add('stick');
+      this._move(0, 0);
+      this._target = null;
+    }
+  }
+
+  _onStickEnd(ev) {
+    if (ev.target.classList.contains('stick')) {
+      ev.target.classList.remove('stick');
+    }
+    this.removeAttribute('disabled');
+  }
+
+  _onMousedown(ev) {
+    this._target = ev.target;
+    this._target.classList.add('grabbed');
+    this._mousemove = this._onMousemove.bind(this);
+    this._mouseup = this._onMouseup.bind(this);
+    this._cursor = { x: ev.pageX, y: ev.pageY };
+    this._move(0, 0);
+    document.documentElement.addEventListener('mousemove', this._mousemove);
+    document.documentElement.addEventListener('mouseup', this._mouseup);
+  }
+
+  _onMousemove(ev) {
+    this._move(ev.pageX - this._cursor.x, ev.pageY - this._cursor.y);
+  }
+
+  _onMouseup() {
+    this._target.classList.remove('grabbed');
+    this._target.classList.add('dropped');
+    this.setAttribute('disabled', '');
+    document.documentElement.removeEventListener('mousemove', this._mousemove);
+    document.documentElement.removeEventListener('mouseup', this._mouseup);
+  }
+
+  _move(x, y) {
+    if (!this._position) {
+      this._position = { x: 0, y: 0};
+    }
+    this._position.x = x;
+    this._position.y = y;
+    if (this._target) {
+      this._target.style.setProperty('--offset-left', `${this._position.x}px`);
+      this._target.style.setProperty('--offset-top', `${this._position.y}px`);
+    }
   }
 
   _placeImages() {
