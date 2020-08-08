@@ -74,8 +74,8 @@
 }
 
 @keyframes stick {
-  from { transform: scale(4); }
-  to { transform: scale(1); }
+  from { transform: scale(4); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 @keyframes wind {
@@ -92,7 +92,7 @@
   width: calc(100% - 2rem);
   height: calc(100% - 2rem);
   margin: 1.5rem 1rem 0;
-  opacity: .3;
+  opacity: .2;
   z-index: -1;
   transition: .218s ease;
   box-shadow: 0 0 1rem 1rem black;
@@ -100,5 +100,5 @@
 }
 
 .sticky-note:hover + .shadow {
-  opacity: .2;
+  opacity: .15;
 }

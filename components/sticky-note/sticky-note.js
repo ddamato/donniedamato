@@ -147,4 +147,8 @@ export default class StickyNote extends HTMLElement {
   }
 }
 
-window.customElements.define('sticky-note', StickyNote);
+const stickyContent = window.customElements.whenDefined('sticky-content');
+Promise.all([stickyContent]).then(() => {
+  window.customElements.define('sticky-note', StickyNote);
+});
+
