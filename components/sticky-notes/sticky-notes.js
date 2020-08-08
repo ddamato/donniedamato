@@ -7,106 +7,46 @@ export default class StickyNotes extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `<style>${css}</style>${html}`;
     this._noteContainer = this.shadowRoot.querySelector('.sticky-notes');
+
+    this._template = document.createElement('template');
+    this._slot = this.shadowRoot.querySelector('slot:not([name])');
+    this._slot.addEventListener('slotchange', () => {
+      this._contentCopy();
+      this._contentAppend();
+    });
+    this._createNotes(8);
   }
 
-  connectedCallback() {
-    this._render();
-  }
-
-  _render() {
+  _createNotes(amount) {
     this._noteContainer.innerHTML = '';
-    this._notes = Array(8).fill(0).map(() => {
-      return this._noteContainer.appendChild(this._createNote())
+    this._notes = Array(amount).fill(0).map(() => {
+      const note = document.createElement('sticky-note');
+      note.classList.add('sticky-note');
+      this._noteContainer.appendChild(note);
+      note.addEventListener('release', () => note.drop());
+      note.addEventListener('dropped', () => note.stick(true));
+      return note;
     });
-    window.setTimeout(() => {this._placeImages()}, 0);
+    window.setTimeout(() => this._reflow(), 0);
   }
 
-  _createNote() {
-    const note = document.createElement('div');
-    note.classList.add('sticky-note');
-    this._setTilt(note);
-    note.addEventListener('mousedown', (ev) => this._onMousedown(ev));
-    note.addEventListener('animationend', (ev) => this._onDropEnd(ev));
-    return note;
-  }
-
-  _setTilt(note) {
-    const tiltMax = 5;
-    const tiltMin = -5;
-    const tilt = Math.floor(Math.random() * (tiltMax - tiltMin + 1) + tiltMin);
-    note.style.setProperty('--rotatez', tilt + 'deg');
-  }
-
-  _onDropEnd(ev) {
-    if (ev.animationName === 'drop') {
-      this._setTilt(ev.target);
-      ev.target.classList.remove('dropped');
-      ev.target.classList.add('hidden');
-      this._move(0, 0);
-      this._target = null;
-      this.removeAttribute('disabled');
+  _contentAppend() {
+    if (this._template.content) {
+      this._notes.forEach((note) => { 
+        note.innerHTML = '';
+        note.appendChild(this._template.content.cloneNode(true));
+      });
     }
   }
 
-  _onMousedown(ev) {
-    this._target = ev.target;
-    this._target.classList.add('grabbed');
-    this._mousemove = this._onMousemove.bind(this);
-    this._mouseup = this._onMouseup.bind(this);
-    this._cursor = { x: ev.pageX, y: ev.pageY };
-    this._move(0, 0);
-    document.documentElement.addEventListener('mousemove', this._mousemove);
-    document.documentElement.addEventListener('mouseup', this._mouseup);
+  _contentCopy() {
+    this._template.content.innerHTML = '';
+    [...this._slot.assignedNodes()].forEach((node) => this._template.content.appendChild(node.cloneNode(true)));
   }
 
-  _onMousemove(ev) {
-    this._move(ev.pageX - this._cursor.x, ev.pageY - this._cursor.y);
-  }
-
-  _onMouseup() {
-    this._target.classList.remove('grabbed');
-    this._target.classList.add('dropped');
-    this.setAttribute('disabled', '');
-    document.documentElement.removeEventListener('mousemove', this._mousemove);
-    document.documentElement.removeEventListener('mouseup', this._mouseup);
-  }
-
-  _move(x, y) {
-    if (!this._position) {
-      this._position = { x: 0, y: 0};
-    }
-    this._position.x = x;
-    this._position.y = y;
-    if (this._target) {
-      this._target.style.setProperty('--offset-left', `${this._position.x}px`);
-      this._target.style.setProperty('--offset-top', `${this._position.y}px`);
-    }
-  }
-
-  _placeImages() {
-    const colAmount = Math.floor(this._noteContainer.offsetWidth / this._notes[0].offsetWidth);
-    const rowAmount = Math.ceil(this._notes.length / colAmount);
-    
-    const xPercent = 100 / colAmount;
-    const yPercent = 100 / rowAmount;
-
-    this._notes.forEach((note, i) => {
-      const x = i % colAmount;
-      const y = Math.floor(i / colAmount);
-      const randSeconds = Math.random() * 3;
-      const t = y * yPercent;
-      const b = 100 - (t + yPercent);
-      const l = x * xPercent;
-      const r = 100 - (l + xPercent);
-      note.style.setProperty('--origin-left', l + '%');
-      note.style.setProperty('--origin-top', t + '%');
-      note.style.setProperty('--origin-right', r + '%');
-      note.style.setProperty('--origin-bottom', b + '%');
-      note.style.setProperty('--origin-width', xPercent + '%');
-      note.style.setProperty('--origin-height', yPercent + '%');
-      note.style.setProperty('--origin-z', rowAmount - y);
-      note.style.setProperty('--origin-delay', randSeconds + 's');
-    });
+  _reflow() {
+    this._notes.forEach((note) => note.reflow());
+    this._contentAppend();
   }
 }
 

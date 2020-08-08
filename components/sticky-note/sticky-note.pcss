@@ -1,3 +1,91 @@
 :host {
   display: block;
+  position: relative;
+  transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), var(--offsetTopPixels, 0px)) rotateX(0deg);
+  z-index: var(--zIndex);
+  pointer-events: none;
+  transform-style: preserve-3d;
+}
+
+:host(.grabbed),
+:host(.dropped),
+:host(.stick) {
+  z-index: 20;
+}
+
+:host(.grabbed) .sticky-note {
+  cursor: grabbing;
+}
+
+.sticky-note {
+  pointer-events: initial;
+  cursor: grab;
+  width: var(--overflowWidthPercent);
+  height: var(--overflowHeightPercent);
+  top: calc((var(--rowPosition) * -100%));
+  left: calc((var(--colPosition) * -100%));
+  clip-path: inset(var(--topPercent) var(--rightPercent) var(--bottomPercent) var(--leftPercent));
+  position: absolute;
+  background-color: rgb(254, 224, 46);
+  transform-origin: calc(var(--leftPercent) + var(--widthPercent) / 2) var(--topPercent);
+  transform-style: preserve-3d;
+  transition: .218s ease;
+  filter: brightness(1);
+  z-index: 2;
+}
+
+.sticky-note:hover {
+  transform: rotateX(30deg);
+  filter: brightness(1.1);
+}
+
+.sticky-note:before {
+  content: '';
+  display: block;
+  width: var(--widthPercent);
+  height: var(--heightPercent);
+  top: var(--topPercent);
+  left: var(--leftPercent);
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.1) 6%,rgba(67,67,67,0.1) 15%,rgba(255,255,255,0) 25%);
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 6%, rgba(67,67,67,0.1) 15%, rgba(255,255,255,0) 25%);
+  background: linear-gradient(to bottom,  rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.1) 6%,rgba(67,67,67,0.1) 15%,rgba(255,255,255,0) 25%);
+  position: absolute;
+  opacity: .6;
+}
+
+:host(.dropped) {
+  animation: drop .6s ease-in forwards;
+}
+
+:host(.stick) {
+  animation: stick .2s ease-in forwards;
+}
+
+:host([hidden]) {
+  opacity: 0;
+}
+
+@keyframes drop {
+  to { transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), 100vh) rotateX(80deg); }
+}
+
+@keyframes stick {
+  from { transform: scale(4); }
+  to { transform: scale(1); }
+}
+
+.shadow {
+  background: black;
+  width: calc(100% - 2rem);
+  height: calc(100% - 2rem);
+  margin: 1rem;
+  opacity: .3;
+  z-index: -1;
+  transition: .218s ease;
+  box-shadow: 0 0 1rem 1rem black;
+  transform-origin: center top;
+}
+
+.sticky-note:hover + .shadow {
+  opacity: .2;
 }

@@ -1,147 +1,27 @@
-:host {
-  display: flex !important;
-  flex: 1;
+.sticky-component {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-:host([disabled]) {
-  pointer-events: none;
-}
-
-.scroll-down {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font: inherit;
-  background: transparent;
-  color: inherit;
-  font-family: "Abril Fatface";
-  font-size: min(1.6rem, 5vw);
-  border: 0;
+.sticky-content {
+  visibility: hidden;
 }
 
 .sticky-notes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   display: flex;
   flex-wrap: wrap;
-  margin: auto;
-  max-width: 600px;
-  justify-content: flex-start;
-  position: relative;
   perspective: 1000px;
-  perspective-origin: center top;
-  z-index: 1;
-  flex: 1;
-  pointer-events: none;
+  perspective-origin: center;
 }
 
 .sticky-note {
+  height: 50%;
   width: 25%;
-  padding-top: 20%;
-  z-index: var(--origin-z);
-}
-
-.sticky-note:after {
-  content: '';
-  background-image: url(./images/post-it.jpg);
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: rgb(254, 224, 46);
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  clip-path: inset(var(--origin-top) var(--origin-right) var(--origin-bottom) var(--origin-left));
-  transform: translate(var(--offset-left, 0px), var(--offset-top, 0px)) rotatex(10deg) rotatez(var(--rotatez));
-  transition: .2s ease;
-  animation: wind 10s var(--origin-delay) infinite alternate ease-in-out;
-  transform-origin: calc(var(--origin-left) + var(--origin-width) / 2) var(--origin-top);
-  filter: brightness(1);
-  opacity: 1;
-  pointer-events: initial;
-}
-
-.sticky-note:hover:after {
-  transform: translate(var(--offset-left, 0px), var(--offset-top, 0px)) rotatex(30deg) rotatez(var(--rotatez));
-  filter: brightness(1.1);
-  animation: none;
   cursor: grab;
-}
-
-.sticky-note:before {
-  content: '';
-  height: calc(var(--origin-height) - 2rem);
-  width: calc(var(--origin-width) - 2rem);
-  display: block;
-  background: #333;
-  position: absolute;
-  top: calc(var(--origin-top) + 1.5rem);
-  left: calc(var(--origin-left) + 1rem);
-  transition: .2s ease;
-  pointer-events: none;
-  transform: translate(var(--offset-left, 0px), var(--offset-top, 0px)) rotatez(var(--rotatez));
-  opacity: .5;
-  box-shadow: 0 0 10px 8px #333, 0 4px 10px 8px #444;
-}
-
-.sticky-note:hover:before {
-  height: calc(var(--origin-height) - 1.5rem);
-  opacity: .4;
-}
-
-.sticky-note.grabbed,
-.sticky-note.dropped {
-  z-index: 20;
-}
-
-.sticky-note.grabbed:before,
-.sticky-note.grabbed:after {
-  animation: none !important;
-  transition: none !important;
-  cursor: grabbing;
-}
-
-.sticky-note.dropped:before {
-  animation: dropshadow .5s ease-in forwards;
-}
-
-.sticky-note.dropped:after {
-  animation: drop .5s ease-in forwards;
-}
-
-.sticky-note.hidden,
-.sticky-note.hidden:before,
-.sticky-note.hidden:after {
-  animation: none;
-  transition: none;
-  opacity: 0;
-  pointer-events: none;
-}
-
-@keyframes wind {
-  0% { transform: translate(var(--offset-left, 0px), var(--offset-top, 0px)) rotatex(10deg) rotatez(var(--rotatez)); }
-  20% { transform: translate(var(--offset-left, 0px), var(--offset-top, 0px)) rotatex(25deg) rotatez(var(--rotatez)); }
-  40% { transform: translate(var(--offset-left, 0px), var(--offset-top, 0px)) rotatex(16deg) rotatez(var(--rotatez)); }
-  60% { transform: translate(var(--offset-left, 0px), var(--offset-top, 0px)) rotatex(22deg) rotatez(var(--rotatez)); }
-  80% { transform: translate(var(--offset-left, 0px), var(--offset-top, 0px)) rotatex(13deg) rotatez(var(--rotatez)); }
-  100% { transform: translate(var(--offset-left, 0px), var(--offset-top, 0px)) rotatex(10deg) rotatez(var(--rotatez)); }
-}
-
-@keyframes drop {
-  99% { 
-    transform: translate(var(--offset-left, 0px), 100vh) rotatex(90deg) rotatez(var(--rotatez));
-    filter: brightness(1.3);
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes dropshadow {
-  to { 
-    transform: translate(var(--offset-left, 0px), 100vh) rotatex(90deg) rotatez(var(--rotatez));
-    opacity: 0;
-  }
 }
