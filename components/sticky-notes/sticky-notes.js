@@ -7,10 +7,12 @@ export default class StickyNotes extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `<style>${css}</style>${html}`;
     this._noteContainer = this.shadowRoot.querySelector('.sticky-notes');
-
-    this._createNotes(8);
     this._template = document.createElement('template');
     this._slot = this.shadowRoot.querySelector('slot:not([name])');
+  }
+
+  connectedCallback() {
+    this._createNotes(8);
     this._slot.addEventListener('slotchange', () => {
       this._template.content.innerHTML = this._slot.assignedNodes()[0].outerHTML;
       window.setTimeout(() => this._contentAppend());

@@ -5,11 +5,12 @@
   </head>
   <body>
     <main>
-      <header></header>
+      <header>
+        <logo-mark></logo-mark>
+      </header>
       <sticky-notes class="sticky-notes container">
         <sticky-content>Donnie D’Amato</sticky-content>
       </sticky-notes>
-      {% include "gallery.njk" %}
       <photo-card class="container" id="about">
         <h2 slot="title">Design Systems Architect</h2>
         <p class="pronounciation">[dɪˈzaɪn ˈsɪstɪmz ˈɑːkɪtɛkt] <speak-button>Design Systems Architect</speak-button></p>
@@ -21,6 +22,7 @@
           <li>Wolf pop-up brooklyn bitters fam raw denim.</li>
         </ol>
       </photo-card>
+      {% include "gallery.njk" %}
       <footer></footer>
     </main>
   </body>
