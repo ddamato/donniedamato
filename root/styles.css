@@ -79,6 +79,7 @@ header {
 .sticky-notes {
   min-height: 100vh;
   padding: 0 2rem;
+  display: flex;
 }
 
 photo-card h2,

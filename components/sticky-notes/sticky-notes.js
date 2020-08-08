@@ -8,13 +8,13 @@ export default class StickyNotes extends HTMLElement {
     this.shadowRoot.innerHTML = `<style>${css}</style>${html}`;
     this._noteContainer = this.shadowRoot.querySelector('.sticky-notes');
 
+    this._createNotes(8);
     this._template = document.createElement('template');
     this._slot = this.shadowRoot.querySelector('slot:not([name])');
     this._slot.addEventListener('slotchange', () => {
-      this._contentCopy();
-      this._contentAppend();
+      this._template.content.innerHTML = this._slot.assignedNodes()[0].outerHTML;
+      window.setTimeout(() => this._contentAppend());
     });
-    this._createNotes(8);
   }
 
   _createNotes(amount) {
@@ -31,17 +31,13 @@ export default class StickyNotes extends HTMLElement {
   }
 
   _contentAppend() {
-    if (this._template.content) {
+    if (this._template.content.innerHTML && this._notes) {
       this._notes.forEach((note) => { 
-        note.innerHTML = '';
-        note.appendChild(this._template.content.cloneNode(true));
+        note.innerHTML = this._template.content.innerHTML;
       });
+    } else {
+      console.error(this._template.content.innerHTML, this._notes);
     }
-  }
-
-  _contentCopy() {
-    this._template.content.innerHTML = '';
-    [...this._slot.assignedNodes()].forEach((node) => this._template.content.appendChild(node.cloneNode(true)));
   }
 
   _reflow() {
@@ -50,4 +46,8 @@ export default class StickyNotes extends HTMLElement {
   }
 }
 
-window.customElements.define('sticky-notes', StickyNotes);
+const stickyNote = window.customElements.whenDefined('sticky-note');
+const stickyContent = window.customElements.whenDefined('sticky-content');
+Promise.all([stickyNote, stickyContent]).then(() => {
+  window.customElements.define('sticky-notes', StickyNotes);
+});
