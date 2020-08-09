@@ -5,10 +5,11 @@
   </head>
   <body>
     <main>
+      <navigation-router></navigation-router>
       <header>
         <logo-mark></logo-mark>
       </header>
-      <sticky-notes class="sticky-notes container">
+      <sticky-notes class="sticky-notes container" id="home">
         <sticky-content>Donnie D’Amato</sticky-content>
       </sticky-notes>
       <photo-card class="container" id="about">
@@ -23,7 +24,7 @@
         </ol>
       </photo-card>
       {% include "gallery.njk" %}
-      <footer></footer>
+      <footer id="contact"></footer>
     </main>
   </body>
 </html>

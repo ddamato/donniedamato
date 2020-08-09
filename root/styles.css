@@ -72,7 +72,7 @@ header {
 }
 
 .sticky-notes {
-  padding: 6rem 2rem;
+  padding: 8rem 2rem;
   display: flex;
   position: relative;
   z-index: 1;

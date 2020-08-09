@@ -21,10 +21,11 @@ async function compile() {
   const mdFiles = contentFiles.filter((file) => path.extname(file) === '.md');
   
   const gallery = mdFiles.map((file) => {
+    const id = path.basename(file).replace(path.extname(file), '');
     const markdown = fs.readFileSync(file).toString();
     const { attributes, body } = fm(markdown);
     const content = md.render(body);
-    return { ...attributes, content };
+    return { ...attributes, content, id };
   }).sort((a, b) => Number(b.year) - Number(a.year));
 
   const index = env.render('base.njk', { 

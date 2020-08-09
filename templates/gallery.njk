@@ -2,6 +2,7 @@
   <div class="photo-frames">
     {% for item in gallery %}
       <photo-frame
+        id="{{ item.id }}"
         class="photo-frame"
         image="{{ item.image }}"
         headline="{{ item.headline }}"
