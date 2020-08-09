@@ -44,15 +44,30 @@ export default class NavigationRouter extends HTMLElement {
   }
 
   _initObserver() {
+    this._currentViewport = [];
     this._observer = new IntersectionObserver((entries) => {
       window.requestAnimationFrame(() => {
         if (!entries && !entries.length) {
           return;
         }
-        const { target } = entries.find(({ isIntersecting }) => isIntersecting) || {};
-        target && this._focusById(target.id);
+
+        entries
+          .forEach(({ target, isIntersecting }) => {
+            const index = this._currentViewport.indexOf(target);
+            if (isIntersecting) {
+              !~index && this._currentViewport.push(target);
+            } else if (~index){
+              this._currentViewport.splice(index, 1);
+            }
+          });
+
+        const [ target ] = entries
+          .filter(({ intersectionRatio }) => intersectionRatio === 1)
+          .map(({ target }) => target)
+          .concat(this._currentViewport);
+        this._focusById(target.id);
       });
-    }, { threshold: 0.3 });
+    }, { threshold: [0, 1] });
   }
 
   _checkAgainstHash(id) {

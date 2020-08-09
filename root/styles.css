@@ -20,7 +20,7 @@ body {
   background-image: url(./images/yellow-bkgd-top.jpg), url(./images/yellow-bkgd-bottom.jpg);
   background-repeat: no-repeat;
   background-position: left top, right bottom;
-  background-size: 300px, contain;
+  background-size: 300px, min(100vw, 800px);
 }
 
 body.scroll-lock {
@@ -61,18 +61,20 @@ header {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  position: fixed;
+  right: 0;
+  top: 0;
 }
 
 .container {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 12vw auto;
   width: 100%;
   display: block;
-  padding: 4vw 1rem;
+  padding: 1rem 2rem;
 }
 
 .sticky-notes {
-  padding: 8rem 2rem;
   display: flex;
   position: relative;
   z-index: 1;
@@ -113,7 +115,7 @@ footer {
 .photo-gallery:before {
   content: '';
   display: block;
-  padding-top: 170%;
+  padding-top: 180%;
 }
 
 .photo-frames {
@@ -160,7 +162,7 @@ footer {
   }
 
   .photo-gallery:before {
-    padding-top: 380%;
+    padding-top: 410%;
   }
 
   .photo-frame:nth-child(2n+1) {
@@ -173,6 +175,10 @@ footer {
 }
 
 @media (max-width: 500px) {
+  body {
+    background-image: none;
+  }
+
   .photo-gallery {
     --photo-columns: 1;
   }
