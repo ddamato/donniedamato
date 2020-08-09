@@ -80,11 +80,17 @@ header {
 }
 
 .sticky-notes {
-  margin-top: 0;
-  padding-top: min(25vw, 12rem);
+  height: 90vh;
   display: flex;
+  justify-content: center;
   position: relative;
   z-index: 1;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.sticky-notes + * {
+  margin-top: 0;
 }
 
 photo-card h2,
@@ -108,10 +114,6 @@ photo-card li:before {
   content: counter(item) ".";
   font-weight: bold;
   margin-right: 1ch;
-}
-
-footer {
-  min-height: 50vw;
 }
 
 .photo-gallery {
@@ -161,10 +163,6 @@ footer {
 
 .photo-frame:nth-child(3n+3) {
   order: 3;
-}
-
-footer {
-  min-height: 100vh;
 }
 
 @media (max-width: 800px) {

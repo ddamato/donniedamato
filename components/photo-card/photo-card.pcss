@@ -32,8 +32,7 @@ slot[name="title"]::slotted(*) {
   box-shadow: 0 2px 6px 2px rgba(50, 50, 50, .2);
   transform: rotate(-5deg);
   margin-right: 1rem;
-  width: 40%;
-  max-width: 200px;
+  width: 200px;
   border-bottom: 1px solid rgba(50, 50, 50, .3);
 }
 
@@ -77,4 +76,12 @@ slot[name="title"]::slotted(*) {
 
 .card {
   padding: 1px 1rem 2rem;
+}
+
+@media (max-width: 500px) {
+  .photo {
+    float: none;
+    width: 60%;
+    margin: 0 auto;
+  }
 }
