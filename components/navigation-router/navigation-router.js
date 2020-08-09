@@ -52,19 +52,18 @@ export default class NavigationRouter extends HTMLElement {
         }
 
         entries
-          .forEach(({ target, isIntersecting }) => {
-            const index = this._currentViewport.indexOf(target);
-            if (isIntersecting) {
-              !~index && this._currentViewport.push(target);
+          .forEach((entry) => {
+            const index = this._currentViewport.findIndex(({ target }) => target === entry.target);
+            if (entry.isIntersecting) {
+              !~index && this._currentViewport.push(entry);
+              if (this._currentViewport.length > 2) {
+                this._currentViewport.shift();
+              }
             } else if (~index){
               this._currentViewport.splice(index, 1);
             }
           });
-
-        const [ target ] = entries
-          .filter(({ intersectionRatio }) => intersectionRatio === 1)
-          .map(({ target }) => target)
-          .concat(this._currentViewport);
+        const { target } = entries.find(({ intersectionRatio }) => intersectionRatio === 1) || this._currentViewport[0];
         this._focusById(target.id);
       });
     }, { threshold: [0, 1] });
