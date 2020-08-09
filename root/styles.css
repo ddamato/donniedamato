@@ -86,7 +86,10 @@ header {
   position: relative;
   z-index: 1;
   margin: 0 auto;
-  align-items: center;
+}
+
+.sticky-notes > :first-child {
+  padding-top: 25vh;
 }
 
 .sticky-notes + * {
