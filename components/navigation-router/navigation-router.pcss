@@ -1,37 +1,29 @@
 :host {
-  position: fixed;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  pointer-events: none;
   display: flex;
+  pointer-events: none;
   --navigation-offset: 0;
 }
 
 .navigation {
   text-align: right;
   pointer-events: initial;
-  margin: auto;
+  margin: -1rem auto;
   list-style: none;
   padding: 0;
   position: relative;
-  opacity: .5;
-  transition: .218s ease;
-  margin-right: 5px;
-}
-
-.navigation:hover {
-  opacity: 1;
+  border: 1px solid transparent;
 }
 
 .navigation:before {
   content: '';
-  border-left: 2px solid;
+  width: 1px;
   position: absolute;
   height: calc(100% - 4rem);
   display: block;
-  left: calc(50% - 1px);
+  left: 50%;
   top: 2rem;
+  background: currentcolor;
+  transform: translatex(-50%);
   pointer-events: none;
 }
 
@@ -52,12 +44,12 @@
 
 .navigation li {
   font-size: 0;
-  margin: 2rem .5rem;
+  margin: 2rem .25rem;
 }
 
 .navigation-link {
   padding: .25rem;
-  border: 1rem solid transparent;
+  border: .5rem solid transparent;
   color: inherit;
   background: currentcolor;
   border-radius: 50%;

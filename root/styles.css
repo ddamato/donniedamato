@@ -19,7 +19,7 @@ body {
 
   background-image: url(./images/yellow-bkgd-top.jpg), url(./images/yellow-bkgd-bottom.jpg);
   background-repeat: no-repeat;
-  background-position: left top, right bottom;
+  background-position: left min(0px, calc(100vw - 800px)), right bottom;
   background-size: 300px, min(100vw, 800px);
 }
 
@@ -58,23 +58,30 @@ hr {
 }
 
 header {
+  position: fixed;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  position: fixed;
-  right: 0;
+  opacity: .5;
+  padding: 1rem;
   top: 0;
+  right: 0;
+  bottom: 0;
+  align-items: flex-end;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .container {
   max-width: 900px;
-  margin: 12vw auto;
+  margin: min(10vw, 6rem) auto;
   width: 100%;
   display: block;
   padding: 1rem 2rem;
 }
 
 .sticky-notes {
+  margin-top: 0;
+  padding-top: min(25vw, 12rem);
   display: flex;
   position: relative;
   z-index: 1;
@@ -156,6 +163,10 @@ footer {
   order: 3;
 }
 
+footer {
+  min-height: 100vh;
+}
+
 @media (max-width: 800px) {
   .photo-gallery {
     --photo-columns: 2;
@@ -175,10 +186,6 @@ footer {
 }
 
 @media (max-width: 500px) {
-  body {
-    background-image: none;
-  }
-
   .photo-gallery {
     --photo-columns: 1;
   }

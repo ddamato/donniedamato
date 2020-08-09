@@ -147,10 +147,18 @@
 }
 
 .controls {
-  position: absolute;
-  bottom: 0;
+  position: sticky;
+  bottom: 1.5rem;
   right: 0;
-  margin-bottom: 2rem;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  font-size: .75rem;
+  justify-content: flex-end;
+}
+
+.controls > :last-child {
+  margin-left: 1rem;
 }
 
 .controls svg {
@@ -164,10 +172,9 @@
   color: #fff;
   font: inherit;
   font-weight: bold;
-  border: 1px solid;
+  border: 0;
   padding: .5em;
   cursor: pointer;
-  border: 2px solid;
 }
 
 slot:not([name])::slotted(:first-child) {

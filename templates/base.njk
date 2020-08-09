@@ -5,9 +5,9 @@
   </head>
   <body>
     <main>
-      <navigation-router></navigation-router>
       <header class="header">
         <logo-mark></logo-mark>
+        <navigation-router></navigation-router>
       </header>
       <sticky-notes class="sticky-notes container" id="home">
         <sticky-content>Donnie D’Amato</sticky-content>
@@ -24,7 +24,9 @@
         </ol>
       </photo-card>
       {% include "gallery.njk" %}
-      <footer id="contact"></footer>
+      <footer class="container" id="contact">
+        footer, contact
+      </footer>
     </main>
   </body>
 </html>
