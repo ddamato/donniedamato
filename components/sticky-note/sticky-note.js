@@ -6,7 +6,7 @@ export default class StickyNote extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `<style>${css}</style>${html}`;
-    this._position = {};
+    this._position = { x: 0, y: 0 };
     this._move = { x: 0, y: 0 };
     this._note = this.shadowRoot.querySelector('.sticky-note');
     this.addEventListener('mousedown', this._onMousedown);
@@ -65,6 +65,7 @@ export default class StickyNote extends HTMLElement {
   }
 
   drop() {
+    this.classList.remove('stick');
     this.addEventListener('animationend', this._onDropEnd);
     this.classList.add('dropped');
   }
@@ -82,8 +83,8 @@ export default class StickyNote extends HTMLElement {
   }
 
   _moveTo(x, y) {
-    this._move.x = this._position.x + x;
-    this._move.y = this._position.y + y;
+    this._move.x = Number(this._position.x) + x;
+    this._move.y = Number(this._position.y) + y;
     this._setCssProperties({
       offsetLeftPixels: this._move.x,
       offsetTopPixels: this._move.y,
@@ -126,8 +127,7 @@ export default class StickyNote extends HTMLElement {
   _onStickEnd(ev) {
     if (ev.animationName === 'stick') {
       this.dispatchEvent(new CustomEvent('stick'));
-      this.removeEventListener('animationend', this._onDropEnd);
-      this.classList.remove('stick');
+      this.removeEventListener('animationend', this._onStickEnd);
     }
   }
 

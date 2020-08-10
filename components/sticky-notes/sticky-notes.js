@@ -27,6 +27,7 @@ export default class StickyNotes extends HTMLElement {
       this._noteContainer.appendChild(note);
       note.addEventListener('release', () => note.drop());
       note.addEventListener('dropped', () => note.stick(true));
+      note.stick();
       return note;
     });
     window.setTimeout(() => this._reflow(), 0);

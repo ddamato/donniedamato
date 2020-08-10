@@ -5,11 +5,11 @@
   z-index: var(--zIndex);
   pointer-events: none;
   transform-style: preserve-3d;
+  opacity: 0;
 }
 
 :host(.grabbed),
-:host(.dropped),
-:host(.stick) {
+:host(.dropped) {
   z-index: 20;
 }
 
@@ -36,7 +36,8 @@
   z-index: 3;
 }
 
-.sticky-note:not(.stick):hover {
+.sticky-note.stick:hover,
+.sticky-note.grabbed:hover {
   transform: rotateX(30deg);
   filter: brightness(1.1);
   animation: none;
@@ -58,25 +59,21 @@
 }
 
 :host(.dropped) {
+  opacity: 1;
   animation: drop .6s ease-in forwards;
 }
 
 :host(.stick) {
-  animation: stick .2s ease-in forwards;
-  pointer-events: none;
-}
-
-:host([hidden]) {
-  opacity: 0;
+  animation: stick .2s var(--delaySeconds) ease-in forwards;
 }
 
 @keyframes drop {
-  to { transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), 150vh) rotateX(90deg); }
+  to { transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), 150vh) rotateX(90deg) scale(1); }
 }
 
 @keyframes stick {
-  from { transform: scale(4); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from { transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), var(--offsetTopPixels, 0px)) rotateX(0deg) scale(4); opacity: 0; }
+  to { transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), var(--offsetTopPixels, 0px)) rotateX(0deg) scale(1); opacity: 1; }
 }
 
 @keyframes wind {
