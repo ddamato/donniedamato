@@ -64,16 +64,18 @@
 }
 
 :host(.stick) {
-  animation: stick .1s var(--delaySeconds) ease-in forwards;
+  /* toggle these lines for animation */
+  transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), var(--offsetTopPixels, 0px));
+  /* animation: stick .2s var(--delaySeconds) ease forwards; */
 }
 
 @keyframes drop {
-  from { transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), var(--offsetTopPixels, 0px)) rotateX(0deg); }
+  from { transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), var(--offsetTopPixels, 0px)); }
   to { transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), 150vh) rotateX(90deg); }
 }
 
 @keyframes stick {
-  from { transform: rotateZ(var(--tiltRotation)) translateZ(150vh) rotateX(0deg); }
+  from { transform: rotateZ(var(--tiltRotation)) translateZ(100vh) translate(var(--offsetLeftPixels, 0px), 100vh) scale(2); }
   to { transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), var(--offsetTopPixels, 0px)); }
 }
 

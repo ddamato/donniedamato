@@ -18,10 +18,46 @@
   flex-wrap: wrap;
   perspective: 1000px;
   perspective-origin: center;
+  pointer-events: none;
 }
 
 .sticky-note {
   height: 50%;
   width: 25%;
   cursor: grab;
+}
+
+.hidden-message {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: inherit;
+}
+
+.hidden-message ol {
+  counter-reset: item;
+  padding: 1rem 1rem 0;
+  margin: 0;
+}
+
+.hidden-message li {
+  display: flex;
+  counter-increment: item;
+  margin-bottom: 1ch;
+}
+
+.hidden-message li:before {
+  content: counter(item) ".";
+  font-weight: bold;
+  margin-right: 1ch;
+}
+
+.hidden-message a {
+  color: inherit;
 }

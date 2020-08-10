@@ -3,7 +3,7 @@
 }
 
 .photo-frame {
-  padding: 1rem;
+  padding: 1rem 1rem 0;
   border: 10px solid;
   border-top-color: #000;
   border-left-color: #111;
@@ -38,6 +38,7 @@
   width: 100%;
   transition: filter ease-in-out .4s;
   border: 1px solid rgba(50, 50, 50, .2);
+  margin-bottom: 1rem;
 }
 
 .photo-frame:not(.fixed-focus):hover .photo-aspect {
@@ -72,7 +73,6 @@
   padding: 0;
   color: #000;
   height: auto;
-  margin-top: 1rem;
 }
 
 .photo-frame:hover .caption,
@@ -123,7 +123,7 @@
   justify-content: space-between;
   font-size: .8em;
   border-bottom: 1px solid;
-  padding-bottom: .5rem;
+  padding-bottom: 1rem;
   line-height: 1;
 }
 
@@ -146,14 +146,16 @@
   display: flex;
 }
 
+.scroll-container {
+  flex: 1;
+}
+
 .controls {
   position: sticky;
-  bottom: 1.5rem;
+  bottom: 2.5rem;
   right: 0;
-  left: 0;
   display: inline-flex;
   align-items: center;
-  font-size: .75rem;
   justify-content: flex-end;
 }
 
@@ -175,6 +177,7 @@
   border: 0;
   padding: .5em;
   cursor: pointer;
+  font-size: .75rem;
 }
 
 slot:not([name])::slotted(:first-child) {
@@ -198,7 +201,7 @@ slot:not([name])::slotted(:first-child) {
 
   .content {
     margin-left: 0;
-    margin-top: 1rem;
+    max-width: initial;
   }
 }
 

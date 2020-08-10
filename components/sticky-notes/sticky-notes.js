@@ -17,6 +17,17 @@ export default class StickyNotes extends HTMLElement {
       this._template.content.innerHTML = this._slot.assignedNodes()[0].outerHTML;
       window.setTimeout(() => this._contentAppend());
     });
+    this._initObserver();
+  }
+
+  _initObserver() {
+    this._observer = new IntersectionObserver((entries) => {
+      window.requestAnimationFrame(() => {
+        if (!entries && !entries.length) return;
+        entries.every(({ isIntersecting }) => !isIntersecting) && this._notes.forEach((note) => note.stick(true));
+      })
+    }, { threshold: 0 });
+    this._observer.observe(this._noteContainer);
   }
 
   _createNotes(amount) {
@@ -26,7 +37,7 @@ export default class StickyNotes extends HTMLElement {
       note.classList.add('sticky-note');
       this._noteContainer.appendChild(note);
       note.addEventListener('release', () => note.drop());
-      note.addEventListener('dropped', () => note.stick(true));
+      // note.addEventListener('dropped', () => note.stick(true));
       note.stick();
       return note;
     });
