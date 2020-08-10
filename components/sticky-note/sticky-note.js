@@ -6,9 +6,10 @@ export default class StickyNote extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `<style>${css}</style>${html}`;
+    this._position = {};
+    this._move = { x: 0, y: 0 };
     this._note = this.shadowRoot.querySelector('.sticky-note');
     this.addEventListener('mousedown', this._onMousedown);
-    this._position = {};
   }
 
   connectedCallback() {
