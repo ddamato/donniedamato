@@ -1,11 +1,10 @@
 :host {
   display: block;
   position: relative;
-  /* transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), var(--offsetTopPixels, 0px)) rotateX(0deg) scale(4); */
+  transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), -150vh) scale(4);
   z-index: var(--zIndex);
   pointer-events: none;
   transform-style: preserve-3d;
-  /* opacity: 0; */
 }
 
 :host(.grabbed),
@@ -59,24 +58,23 @@
   z-index: 4;
 }
 
+
 :host(.dropped) {
-  animation: drop .6s ease-in forwards;
-  opacity: 1;
+  animation: drop .6s ease-in;
 }
 
 :host(.stick) {
-  transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), var(--offsetTopPixels, 0px)) rotateX(0deg) scale(1);
-  animation: stick .2s ease-in;
+  animation: stick .1s var(--delaySeconds) ease-in forwards;
 }
 
 @keyframes drop {
-  from { transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), var(--offsetTopPixels, 0px)) rotateX(0deg) scale(1); }
-  to { transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), 150vh) rotateX(90deg) scale(1); }
+  from { transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), var(--offsetTopPixels, 0px)) rotateX(0deg); }
+  to { transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), 150vh) rotateX(90deg); }
 }
 
 @keyframes stick {
-  from { transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), var(--offsetTopPixels, 0px)) rotateX(0deg) scale(4); opacity: 0; }
-  to { transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), var(--offsetTopPixels, 0px)) rotateX(0deg) scale(1); opacity: 1; }
+  from { transform: rotateZ(var(--tiltRotation)) translateZ(150vh) rotateX(0deg); }
+  to { transform: rotateZ(var(--tiltRotation)) translate(var(--offsetLeftPixels, 0px), var(--offsetTopPixels, 0px)); }
 }
 
 @keyframes wind {
