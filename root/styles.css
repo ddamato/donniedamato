@@ -19,19 +19,12 @@ body {
 
   background-image: url(./images/yellow-bkgd-top.jpg), url(./images/yellow-bkgd-bottom.jpg);
   background-repeat: no-repeat;
-  background-position: left min(0px, calc(100vw - 800px)), right bottom;
-  background-size: 300px, min(100vw, 800px);
+  background-position: left min(0px, calc(100vw - 800px)), 120% bottom;
+  background-size: 300px, min(100vw, 600px);
 }
 
 body.scroll-lock {
   overflow: hidden;
-}
-
-h1,
-h2,
-h3 {
-  font-family: "Abril Fatface";
-  margin: 1rem 0;
 }
 
 h1 {
@@ -168,13 +161,86 @@ photo-card li:before {
   order: 3;
 }
 
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  opacity: .5;
+  font-size: .75em;
+}
+
+.footer-content {
+  width: 40vw;
+  display: inline-flex;
+}
+
+.social-connect {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: .5rem;
+}
+
+.social-connect li + li {
+  margin-top: .5rem;
+}
+
+.social-connect a {
+  height: 1.5em;
+  width: 1.5em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  color: white;
+}
+
+.footer-info {
+  border-left: 1px solid;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-top {
+  padding-left: .5rem;
+  padding-bottom: .25rem;
+  border-bottom: 1px solid;
+  margin-top: -2px;
+}
+
+.footer-top span {
+  font-size: 1.2em;
+  letter-spacing: .37em;
+  font-family: Impact, sans-serif;
+  text-transform: uppercase;
+}
+
+.footer-bottom {
+  padding-left: .5rem;
+  padding-top: .25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: -2px;
+}
+
+.footer h3 {
+  margin: 0 0 auto;
+  font-weight: 400;
+  padding: 0 0 1rem;
+}
+
 @media (max-width: 800px) {
   .photo-gallery {
     --photo-columns: 2;
   }
 
   .photo-gallery:before {
-    padding-top: 410%;
+    padding-top: 415%;
   }
 
   .photo-frame:nth-child(2n+1) {
@@ -183,6 +249,11 @@ photo-card li:before {
   
   .photo-frame:nth-child(2n+2) {
     order: 2;
+  }
+
+  .footer-content {
+    margin-bottom: 40vw;
+    width: 100%;
   }
 }
 
@@ -198,10 +269,14 @@ photo-card li:before {
   .photo-frames {
     position: static;
     flex-flow: column nowrap;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .photo-frame:nth-child(n) {
     order: initial;
     margin-bottom: 1rem;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
