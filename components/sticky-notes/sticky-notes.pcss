@@ -1,6 +1,11 @@
+:host {
+  width: 100%;
+  display: block;
+  max-width: 600px;
+}
+
 .sticky-component {
   position: relative;
-  max-width: 600px;
   margin: auto;
 }
 
@@ -8,36 +13,104 @@
   visibility: hidden;
 }
 
+.hidden-message,
 .sticky-notes {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-wrap: wrap;
-  perspective: 1000px;
-  perspective-origin: center;
-  pointer-events: none;
-}
-
-.sticky-note {
-  height: 50%;
-  width: 25%;
-  cursor: grab;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
 }
 
 .hidden-message {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+  flex-direction: column;
+}
+
+.sticky-notes {
+  list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	perspective: 1000px;
+  pointer-events: none;
+}
+
+.shadow-note {
+  width: calc(100% / 4);
+	height: calc(100% / 2);
+	position: relative;
+  transform-style: preserve-3d;
+  transform: translate(var(--offsetLeftPixels, 0px), var(--offsetTopPixels, 0px)) rotatez(var(--tiltRotation));
+  z-index: var(--zIndex);
+  pointer-events: initial;
+}
+
+.shadow-note.grabbed {
+  z-index: 20;
+}
+
+.shadow-note.dropped {
+  z-index: 20;
+  animation: drop .6s ease-in forwards;
+}
+
+.shadow-note.hidden {
+  visibility: hidden;
+  transform: translate(var(--offsetLeftPixels, 0px), 150vh) rotateX(90deg) rotateZ(var(--tiltRotation));
+}
+
+@keyframes drop {
+  from { transform: translate(var(--offsetLeftPixels, 0px), var(--offsetTopPixels, 0px)) rotateZ(var(--tiltRotation)); }
+  to { transform: translate(var(--offsetLeftPixels, 0px), 150vh) rotateX(90deg) rotateZ(var(--tiltRotation)); }
+}
+
+.shadow-note:before {
+  content: '';
+  background: rgba(50, 50, 50, .2);
+  box-shadow: 0 0 12px 4px rgba(50, 50, 50, .2);
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: inherit;
+  opacity: .4;
+  transform: translatey(0);
+  transition: .4s ease;
+  cursor: pointer;
+}
+
+.shadow-note:hover:before {
+  opacity: .1;
+  transform: translatey(1rem);
+}
+
+.sticky-note {
+  width: 100%;
+  height: 100%;
+	overflow: hidden;
+	transform-origin: center top;
+	transition: .4s ease;
+	transform-style: preserve-3d;
+	filter: brightness(1);
+  transform: rotatex(10deg);
+  pointer-events: none;
+}
+
+.shadow-note:hover .sticky-note {
+  transform: rotatex(30deg);
+  filter: brightness(1.1);
+}
+
+.overflow {
+  width: calc(100% * 4);
+	height: calc(100% * 2);
+	position: absolute;
+	background: rgb(254, 224, 46);
+  transform: translate(var(--leftPercent), var(--topPercent));
 }
 
 .hidden-message ol {
