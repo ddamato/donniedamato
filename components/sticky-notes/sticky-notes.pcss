@@ -22,13 +22,6 @@
 	left: 0;
 }
 
-.hidden-message {
-  display: flex;
-	align-items: center;
-	justify-content: center;
-  flex-direction: column;
-}
-
 .sticky-notes {
   list-style: none;
 	margin: 0;
@@ -55,10 +48,12 @@
 
 .shadow-note.dropped {
   z-index: 20;
+  pointer-events: none;
   animation: drop .6s ease-in forwards;
 }
 
 .shadow-note.hidden {
+  pointer-events: none;
   visibility: hidden;
   transform: translate(var(--offsetLeftPixels, 0px), 150vh) rotateX(90deg) rotateZ(var(--tiltRotation));
 }
@@ -70,22 +65,34 @@
 
 .shadow-note:before {
   content: '';
-  background: rgba(50, 50, 50, .2);
-  box-shadow: 0 0 12px 4px rgba(50, 50, 50, .2);
+  background: rgba(190, 130, 0, .5);
+  box-shadow: 0 .5rem 12px 2rem rgba(190, 130, 0, .5);
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  opacity: .4;
+  width: 50%;
+  height: 50%;
+  top: 25%;
+  left: 25%;
+  opacity: 1;
   transform: translatey(0);
   transition: .4s ease;
   cursor: pointer;
 }
 
 .shadow-note:hover:before {
-  opacity: .1;
+  opacity: .8;
   transform: translatey(1rem);
+}
+
+.sticky-note:after {
+  content: '';
+  height: 100%;
+  width: 100%;
+  display: block;
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.1) 6%,rgba(67,67,67,0.1) 15%,rgba(255,255,255,0) 25%);
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 6%, rgba(67,67,67,0.1) 15%, rgba(255,255,255,0) 25%);
+  background: linear-gradient(to bottom,  rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.1) 6%,rgba(67,67,67,0.1) 15%,rgba(255,255,255,0) 25%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a000000', endColorstr='#00ffffff',GradientType=0 );
+  position: absolute;
 }
 
 .sticky-note {
@@ -111,6 +118,13 @@
 	position: absolute;
 	background: rgb(254, 224, 46);
   transform: translate(var(--leftPercent), var(--topPercent));
+}
+
+.hidden-message {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+  flex-direction: column;
 }
 
 .hidden-message ol {
