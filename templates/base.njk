@@ -4,12 +4,29 @@
     {% include "head.njk" %}
   </head>
   <body>
-    <main class="main">
-      <div class="max-width">
-        <header class="header"></header>
-        <card-carousel></card-carousel>
-        {% include "projects.njk" %}
-      </div>
+    <header class="header">
+      <picture class="max-width">
+        <!-- <source srcset="/media/cc0-images/surfer-240-200.jpg" media="(min-width: 800px)"> -->
+        <img src="images/header-hq.jpg" alt=""/>
+      </picture>
+      <p class="subheadline">Design Systems Architect</p>
+    </header>
+    <main class="main max-width">
+     <card-carousel>
+        <div class="topic-card">
+          <h3>UXD</h3>
+          <p>Poutine 90's air plant woke. Farm-to-table celiac migas, pitchfork VHS disrupt helvetica. Humblebrag tattooed truffaut mlkshk organic man bun occupy marfa cardigan. </p>
+        </div>
+        <div class="topic-card">
+          <h3>ENG</h3>
+          <p>Poutine 90's air plant woke. Farm-to-table celiac migas, pitchfork VHS disrupt helvetica. Humblebrag tattooed truffaut mlkshk organic man bun occupy marfa cardigan. </p>
+        </div>
+        <div class="topic-card">
+          <h3>EDU</h3>
+          <p>Poutine 90's air plant woke. Farm-to-table celiac migas, pitchfork VHS disrupt helvetica. Humblebrag tattooed truffaut mlkshk organic man bun occupy marfa cardigan. </p>
+        </div>
+      </card-carousel>
+      {% include "projects.njk" %}
     </main>
     <footer class="footer">
       <div class="max-width">
