@@ -20,7 +20,7 @@ async function compile() {
   const contentFiles = await glob.readdirPromise('content/*.md');
   const mdFiles = contentFiles.filter((file) => path.extname(file) === '.md');
   
-  const gallery = mdFiles.map((file) => {
+  const projects = mdFiles.map((file) => {
     const id = path.basename(file).replace(path.extname(file), '');
     const markdown = fs.readFileSync(file).toString();
     const { attributes, body } = fm(markdown);
@@ -29,7 +29,7 @@ async function compile() {
   }).sort((a, b) => Number(b.year) - Number(a.year));
 
   const index = env.render('base.njk', { 
-    gallery,
+    projects,
     description: DESCRIPTION,
   });
 

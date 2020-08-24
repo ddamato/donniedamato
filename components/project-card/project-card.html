@@ -1,0 +1,17 @@
+<div class="project">
+  <picture class="picture" role="presentation">
+    <source srcset="/media/cc0-images/surfer-240-200.jpg" media="(min-width: 800px)">
+    <img src="/media/cc0-images/painted-hand-298-332.jpg" alt="" />
+  </picture>
+  <div class="content">
+    <div class="header">
+      <ul class="tags"></ul>
+      <slot name="headline"></slot>
+      <slot name="summary"></slot>
+      <button class="open-project">view project details</button>
+    </div>
+    <div class="details">
+      <slot></slot>
+    </div>
+  </div>
+</div>

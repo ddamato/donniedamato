@@ -1,0 +1,13 @@
+<div class="projects">
+    {% for project in projects %}
+      <project-card
+        id="{{ project.id }}"
+        class="project-card"
+        image="{{ project.image }}"
+        tags="{{ project.tags }}">
+          <h2 slot="headline">{{ project.headline }}</h2>
+          <p slot="summary">{{ project.summary }}</p>
+          {{ project.content | safe }}
+      </project-card>
+    {% endfor %}
+  </div>

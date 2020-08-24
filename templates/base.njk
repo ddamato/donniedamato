@@ -4,9 +4,17 @@
     {% include "head.njk" %}
   </head>
   <body>
-    <main>
-      {% include "projects.njk" %}
-      {% include "footer.njk" %}
+    <main class="main">
+      <div class="max-width">
+        <header class="header"></header>
+        <card-carousel></card-carousel>
+        {% include "projects.njk" %}
+      </div>
     </main>
+    <footer class="footer">
+      <div class="max-width">
+         {% include "footer.njk" %}
+      </div>
+    </footer>
   </body>
 </html>

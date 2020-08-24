@@ -1,3 +1,30 @@
 *, *:before, *:after {
   box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  background: #ff0090;
+  color: #000000;
+  font-family: europa, sans-serif;
+}
+
+.main {
+  padding: 1rem;
+}
+
+.header {
+  min-height: 90vh;
+}
+
+.footer {
+  padding: 1rem;
+  background: #000000;
+  color: #ffffff;
+}
+
+.max-width {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+}
