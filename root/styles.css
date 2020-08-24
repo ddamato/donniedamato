@@ -14,10 +14,6 @@ body {
   font-family: europa, sans-serif;
 }
 
-.main {
-  padding: 1rem;
-}
-
 .header {
   text-align: center;
 }
@@ -26,7 +22,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
 }
 
 .header img {
@@ -37,6 +32,9 @@ body {
   text-transform: uppercase;
   letter-spacing: 1em;
   font-weight: bolder;
+  transform: translatey(-3rem);
+  font-size: .8em;
+  text-indent: 1em;
 }
 
 .topic-card {
@@ -45,16 +43,27 @@ body {
   color: #000000;
   padding: 1rem;
   box-shadow: var(--boxshadow);
+  flex: 1;
 }
 
 .topic-card h3 {
   background: #000000;
   color: #ffffff;
   font-size: 2.5em;
-  margin: 0;
+  margin: 0 0 1rem;
   display: inline-block;
   padding: 4px 12px;
   border-radius: 12px;
+  position: relative;
+}
+
+.topic-card h3:after {
+  content: url('./images/paint-strokes.jpg');
+  display: block;
+  position: absolute;
+  transform: translate(1rem, -2rem) scale(.5);
+  transform-origin: left top;
+  mix-blend-mode: multiply;
 }
 
 .topic-card:not(:last-child) {
@@ -65,10 +74,12 @@ body {
   padding: 1rem;
   background: #000000;
   color: #ffffff;
+  font-size: .8em;
 }
 
 .max-width {
   max-width: var(--maxwidth);
   width: 100%;
   margin: 0 auto;
+  padding: 1rem;
 }
