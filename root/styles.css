@@ -59,14 +59,22 @@ header {
   position: fixed;
   display: flex;
   flex-direction: column;
-  opacity: .5;
-  padding: 1rem;
   top: 0;
   right: 0;
-  bottom: 0;
   align-items: flex-end;
   z-index: 2;
-  pointer-events: none;
+  transform-origin: calc(100% - 2rem) 2.5rem;
+  transition: transform 1s ease;
+  transform: rotate(-180deg);
+}
+
+header:hover {
+  transform: rotate(0deg);
+}
+
+header > * {
+  background: #111;
+  color: #fdd900;
 }
 
 .container {
