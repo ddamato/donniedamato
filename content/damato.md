@@ -1,6 +1,6 @@
 ---
 image: ./images/damato.jpg
-tags: UXD, ENG
+tags: UXD, DEV
 headline: DAMATO Design
 summary: Design System experimentation
 ---
