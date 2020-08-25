@@ -9,18 +9,18 @@
 
 body {
   margin: 0;
-  background: #ff0090;
+  background-color: #f0f0f0;
   color: #000000;
   font-family: europa, sans-serif;
 }
 
 a, .link {
-  color: #ff0090;
+  color: inherit;
   text-decoration: underline;
 }
 
 .main {
-  filter: drop-shadow(0 -1rem .5rem rgba(217, 17, 107, 0.8));
+  filter: drop-shadow(0 -1rem .5rem rgba(17, 17, 17, .15));
 }
 
 .header {
@@ -52,7 +52,6 @@ a, .link {
   color: #000000;
   padding: 1rem;
   flex: 1;
-  border-top: 1px solid rgba(0, 0, 0, .2);
   overflow: hidden;
 }
 
@@ -64,17 +63,6 @@ a, .link {
   border-radius: 12px;
   border: 5px solid;
   position: relative;
-}
-
-.topic-card h3:after {
-  content: url('./images/paint-strokes.jpg');
-  display: block;
-  position: absolute;
-  transform: translate(-50%, -50%) scale(0.5);
-  transform-origin: center;
-  mix-blend-mode: multiply;
-  top: 100%;
-  left: 100%;
 }
 
 .topic-card:not(:last-child) {
