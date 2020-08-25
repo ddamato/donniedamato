@@ -3,6 +3,7 @@ image: ./images/damato.jpg
 tags: UXD, DEV
 headline: DAMATO Design
 summary: Design System experimentation
+year: 2020
 ---
 This was a personal project in design systems; to create a system without business influence. This was to strictly focus on what pieces can use similar design elements while providing the proper affordance for users to achieve their goals.
 

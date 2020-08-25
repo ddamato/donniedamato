@@ -3,7 +3,6 @@
 }
 
 :root {
-  --boxshadow: 0 -1rem 1rem 0rem rgba(217, 17, 107, 0.8);
   --maxwidth: 760px;
 }
 
@@ -17,6 +16,10 @@ body {
 a, .link {
   color: #ff0090;
   text-decoration: underline;
+}
+
+.main {
+  filter: drop-shadow(0 -1rem .5rem rgba(217, 17, 107, 0.8))
 }
 
 .header {
@@ -47,7 +50,6 @@ a, .link {
   background: #ffffff;
   color: #000000;
   padding: 1rem;
-  box-shadow: var(--boxshadow);
   flex: 1;
 }
 

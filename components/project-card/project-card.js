@@ -18,7 +18,7 @@ export default class ProjectCard extends HTMLElement {
 
   attributeChangedCallback(attrName, oldVal, newVal) {
     if (attrName === 'image') {
-      this._$img.src = newVal;
+      this._$img.style.setProperty('background-image', `url(${newVal})`);
     }
 
     if (attrName === 'tags') {
