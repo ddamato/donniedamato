@@ -3,7 +3,8 @@
 }
 
 :root {
-  --maxwidth: 760px;
+  --maxwidth: 860px;
+  --gap: 2rem;
 }
 
 body {
@@ -19,7 +20,7 @@ a, .link {
 }
 
 .main {
-  filter: drop-shadow(0 -1rem .5rem rgba(217, 17, 107, 0.8))
+  filter: drop-shadow(0 -1rem .5rem rgba(217, 17, 107, 0.8));
 }
 
 .header {
@@ -51,16 +52,17 @@ a, .link {
   color: #000000;
   padding: 1rem;
   flex: 1;
+  border-top: 1px solid rgba(0, 0, 0, .2);
+  overflow: hidden;
 }
 
 .topic-card h3 {
-  background: #000000;
-  color: #ffffff;
   font-size: 2.5em;
   margin: 0 0 1rem;
   display: inline-block;
   padding: 4px 12px;
   border-radius: 12px;
+  border: 5px solid;
   position: relative;
 }
 
@@ -68,24 +70,26 @@ a, .link {
   content: url('./images/paint-strokes.jpg');
   display: block;
   position: absolute;
-  transform: translate(1rem, -2rem) scale(.5);
-  transform-origin: left top;
+  transform: translate(-50%, -50%) scale(0.5);
+  transform-origin: center;
   mix-blend-mode: multiply;
+  top: 100%;
+  left: 100%;
 }
 
 .topic-card:not(:last-child) {
-  margin-right: 1rem;
+  margin-right: var(--gap);
 }
 
 .footer {
-  padding: 1rem;
+  padding: 2rem 0;
   background: #000000;
   color: #ffffff;
   font-size: .8em;
 }
 
 .footer p {
-  margin: 0;
+  margin-bottom: 0;
 }
 
 .footer-content {
@@ -101,7 +105,7 @@ a, .link {
 .donnie-image {
   border-radius: 1rem;
   max-width: 25%;
-  margin-right: 1rem;
+  margin-right: var(--gap);
   object-fit: contain;
 }
 
@@ -112,7 +116,7 @@ a, .link {
 }
 
 .email-address {
-  font-size: 2em;
+  font-size: min(2em, 3vw);
   margin-bottom: auto;
   line-height: 1;
 }
@@ -122,7 +126,7 @@ a, .link {
   text-align: right;
   display: flex;
   flex-direction: column;
-  padding-left: 1rem;
+  padding-left: var(--gap);
 }
 
 .contact-social {
@@ -154,5 +158,5 @@ a, .link {
   max-width: var(--maxwidth);
   width: 100%;
   margin: 0 auto;
-  padding: 1rem;
+  padding: var(--gap);
 }

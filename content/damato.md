@@ -2,7 +2,7 @@
 image: ./images/damato.jpg
 tags: UXD, DEV
 headline: DAMATO Design
-summary: Design System experimentation
+summary: I started my career at Compass as a frontend engineer but opporunities arose that helped shape the UX Engineer role. Now the sole enginee reporting underneath the design organization, I was originally responsible for supporting product designers in creating prototypes of their mockups.
 year: 2020
 ---
 This was a personal project in design systems; to create a system without business influence. This was to strictly focus on what pieces can use similar design elements while providing the proper affordance for users to achieve their goals.

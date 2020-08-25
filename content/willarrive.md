@@ -1,7 +1,7 @@
 ---
-image: ./images/deltazeus.jpg
+image: ./images/willarrive.jpg
 tags: UXD, DEV
-headline: deltazeus
+headline: willarrive.in
 summary: I started my career at Compass as a frontend engineer but opporunities arose that helped shape the UX Engineer role. Now the sole enginee reporting underneath the design organization, I was originally responsible for supporting product designers in creating prototypes of their mockups.
 year: 2020
 ---
