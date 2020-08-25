@@ -48,11 +48,26 @@ a, .link {
 
 .topic-card {
   border-radius: 1rem;
-  background: #ffffff;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: 50%;
   color: #000000;
   padding: 1rem;
   flex: 1;
   overflow: hidden;
+}
+
+.topic-card:nth-child(1) {
+  background-image: url(./images/splat1.jpg);
+}
+
+.topic-card:nth-child(2) {
+  background-image: url(./images/splat2.jpg);
+}
+
+.topic-card:nth-child(3) {
+  background-image: url(./images/splat3.jpg);
 }
 
 .topic-card h3 {
@@ -63,6 +78,7 @@ a, .link {
   border-radius: 12px;
   border: 5px solid;
   position: relative;
+  background: #fff;
 }
 
 .topic-card:not(:last-child) {
