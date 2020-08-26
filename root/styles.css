@@ -5,7 +5,6 @@
 :root {
   --maxwidth: 860px;
   --gap: 2rem;
-  --gradientpos: 70vmin;
 }
 
 body {
@@ -26,34 +25,15 @@ a, .link {
 }
 
 .main {
-  filter: drop-shadow(0 -1rem .5rem rgba(17, 17, 17, .15));
   overflow: hidden;
   margin-bottom: -8rem;
   padding-bottom: 8rem;
-}
-
-.header {
-  text-align: center;
-}
-
-.header picture {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.header img {
-  max-width: calc(1300 / 1050 * 100%);
-}
-
-.header .subheadline {
-  text-transform: uppercase;
-  letter-spacing: min(1em, 1vw);
-  font-weight: bolder;
-  transform: translatey(-2.5em);
-  font-size: .8em;
-  text-indent: 1em;
+  background-image: url(images/header-hq.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+  background-size: calc((1300 / 1070 * min(100%, var(--maxwidth))) - (var(--gap) * 2));
+  padding-top: min(36vw, 20rem);
 }
 
 .carousel {
@@ -197,6 +177,10 @@ a, .link {
   width: 100%;
   margin: 0 auto;
   padding: var(--gap) var(--gap) 0;
+}
+
+.drop-shadow {
+  filter: drop-shadow(0 -1rem .5rem rgba(17, 17, 17, .15));
 }
 
 @media (max-width: 670px) {

@@ -4,18 +4,11 @@
     {% include "head.njk" %}
   </head>
   <body>
-    <header class="header">
-      <picture class="splash max-width">
-        <!-- <source srcset="/media/cc0-images/surfer-240-200.jpg" media="(min-width: 800px)"> -->
-        <img src="images/header-hq.jpg" alt=""/>
-      </picture>
-      <p class="subheadline max-width">Design Systems Architect</p>
-    </header>
     <main class="main">
-      <div class="carousel max-width">
+      <div class="carousel max-width drop-shadow">
         {% include "carousel.njk" %}
       </div>
-      <div class="max-width">
+      <div class="projects max-width drop-shadow">
         {% include "projects.njk" %}
       </div>
     </main>
