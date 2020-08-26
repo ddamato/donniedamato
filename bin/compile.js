@@ -13,6 +13,7 @@ const env = new nunjucks.Environment(loader, {
   trimBlocks: true,
   lstripBlocks: true,
 });
+env.addFilter('split', (str, seperator) => str.split(seperator));
 const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site');
 const DESCRIPTION = `The DAMATO Design System created by Donnie D'Amato is an exploration of architecting a design system without business influence; focusing on the best practices of user experience and web engineering.`;
 

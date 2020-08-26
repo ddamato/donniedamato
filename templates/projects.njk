@@ -1,11 +1,20 @@
 {% for project in projects %}
-  <project-card
-    id="{{ project.id }}"
-    class="project-card"
-    image="{{ project.image }}"
-    tags="{{ project.tags }}">
-      <h2 slot="headline">{{ project.headline }}</h2>
-      <p slot="summary">{{ project.summary }}</p>
-      {{ project.content | safe }}
-  </project-card>
+  <div class="project-card">
+    <div class="project-image" style="background-image: url({{ project.image }})"></div>
+    <div class="project-content">
+      <ul class="project-tags">
+        {% for tag in project.tags | split(",") %}
+        <li class="project-tag">{{ tag | trim }}</li>
+        {% endfor %}
+      </ul>
+      <h2 class="project-headline">{{ project.headline }}</h2>
+      <details>
+        <summary class="project-summary">{{ project.summary }}</summary>
+        <hr></hr>
+        <div class="project-details">
+          {{ project.content | safe }}
+        </div>
+      </details>
+    </div>
+  </div>
 {% endfor %}

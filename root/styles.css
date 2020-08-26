@@ -84,8 +84,68 @@ a, .link {
 }
 
 .project-card {
-  display: block;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 1rem;
+  display: flex;
+  overflow: hidden;
+  position: relative;
   margin-bottom: var(--gap);
+}
+
+.project-image {
+  flex: 1;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  padding-top: 8rem;
+}
+
+.project-content {
+  flex: 2;
+  padding: var(--gap);
+}
+
+.project-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project-tag {
+  display: inline-block;
+  padding: 2px 6px;
+  border: 2px solid;
+  border-radius: 4px;
+  font-weight: bolder;
+  background: #fff;
+}
+
+.project-tag:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.project-headline {
+  font-size: clamp(1.5em, 6vw, 3em);
+  line-height: 1.25;
+}
+
+.project-summary:focus {
+  outline: none;
+}
+
+.project-card hr {
+  border-radius: 1rem;
+  background: currentColor;
+  border: 0;
+  height: 6px;
+  margin: 1em 0;
+}
+
+@media (max-width: 760px) {
+  .project {
+    flex-direction: column;
+  }
 }
 
 .blob {
