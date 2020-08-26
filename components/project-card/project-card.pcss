@@ -4,7 +4,6 @@
   border-radius: 1rem;
   display: flex;
   overflow: hidden;
-  margin-top: var(--gap);
   position: relative;
 }
 
@@ -13,6 +12,7 @@
   background: #eee;
   background-size: cover;
   background-position: center;
+  padding-top: 8rem;
 }
 
 .content {
@@ -40,7 +40,8 @@
 }
 
 slot[name="headline"]::slotted(*) {
-  font-size: 3em;
+  font-size: clamp(1.5em, 6vw, 3em);
+  line-height: 1.25;
 }
 
 .continue {
@@ -62,4 +63,10 @@ slot[name="headline"]::slotted(*) {
 
 .details {
   display: none;
+}
+
+@media (max-width: 760px) {
+  .project {
+    flex-direction: column;
+  }
 }
