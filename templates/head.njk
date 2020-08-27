@@ -35,6 +35,10 @@
   <link rel="stylesheet" href="styles.css">
 </noscript>
 
+<script type="text/javascript">
+  window.onload = () => 'serviceWorker' in navigator && navigator.serviceWorker.register('sw.js').then((registration) => registration.update()).catch((err) => {});
+</script>
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-54428903-2"></script>
