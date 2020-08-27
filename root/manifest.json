@@ -2,7 +2,8 @@
   "short_name": "Donnie D'Amato",
   "name": "Donnie D'Amato - Design Systems Architect",
   "lang": "en",
-  "start_url": "https://donniedamato.info",
+  "start_url": "/",
+  "scope": "/",
   "background_color": "#ffffff",
   "theme_color": "#000000",
   "dir": "ltr",
@@ -15,8 +16,8 @@
       "type": "image/png"
     },
     {
-      "src": "android-chrome-256x256.png",
-      "sizes": "256x256",
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
