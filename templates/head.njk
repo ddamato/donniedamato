@@ -1,8 +1,8 @@
 
-<title>Donnie D'Amato</title>
-<meta property="og:url" content="https://damato.design" />
+<title>{{ title }}</title>
+<meta property="og:url" content="https://donniedamato.info" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="DAMATO Design System - {{ title }}" />
+<meta property="og:title" content="{{ title }}" />
 <meta property="og:description" content="{{ description }}" />
 <meta property="og:image" content="https://damato.design/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
@@ -13,7 +13,7 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta name="description" content="{{ description }}">
-<link rel="alternate" href="https://damato.design" hreflang="en-us" />
+<link rel="alternate" href="https://donniedamato.info" hreflang="en-us" />
 
 <script type="text/javascript" src="bubbles.js" defer></script>
 
@@ -43,16 +43,9 @@
 <script type="application/ld+json">
 {
   "@context": "schema.org",
-  "@type": "Guide",
-  "about": "Design Systems",
-  "name": "DAMATO Design System",
-  "text": "{{ description }}",
-  "reviewAspect": [
-    "Color",
-    "Typography",
-    "Layout",
-    "Patterns",
-    "Components"
-  ]
+  "@type": "WebPage",
+  "name": "{{ title }}",
+  "description": "{{ description }}",
+  "url": "http://donniedamato.info"
 }
 </script>

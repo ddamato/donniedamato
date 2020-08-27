@@ -15,6 +15,7 @@ const env = new nunjucks.Environment(loader, {
 });
 env.addFilter('split', (str, seperator) => str.split(seperator));
 const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site');
+const TITLE = `Donnie D'Amato - Design Systems Architect`;
 const DESCRIPTION = `The DAMATO Design System created by Donnie D'Amato is an exploration of architecting a design system without business influence; focusing on the best practices of user experience and web engineering.`;
 
 async function compile() {
@@ -31,6 +32,7 @@ async function compile() {
 
   const index = env.render('base.njk', { 
     projects,
+    title: TITLE,
     description: DESCRIPTION,
   });
 
