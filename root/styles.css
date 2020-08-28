@@ -4,7 +4,7 @@
 
 :root {
   --maxwidth: 860px;
-  --gap: 2rem;
+  --gap: min(2rem, 2vw);
 }
 
 body {
@@ -41,7 +41,7 @@ a, .link {
   background-attachment: fixed;
   background-position: center top;
   background-size: calc(min(115%, calc(var(--maxwidth) + 140px)) - (var(--gap) * 2));
-  padding-top: min(30vw, 18rem);
+  padding-top: min(40vw, 18rem);
 }
 
 .carousel {
@@ -82,8 +82,8 @@ a, .link {
   border-radius: 1rem;
   display: flex;
   overflow: hidden;
-  position: relative;
-  margin-bottom: var(--gap);
+  margin-top: var(--gap);
+  margin-bottom: 1rem;
 }
 
 .project-image {
@@ -97,6 +97,7 @@ a, .link {
 .project-content {
   flex: 2;
   padding: var(--gap);
+  padding-bottom: 3rem;
 }
 
 .project-tags {
@@ -151,7 +152,7 @@ a, .link {
 }
 
 .footer {
-  padding: 2rem 0;
+  padding: 2rem;
   background: #111;
   color: #fff;
   font-size: .8em;
@@ -226,7 +227,7 @@ a, .link {
   max-width: var(--maxwidth);
   width: 100%;
   margin: 0 auto;
-  padding: var(--gap) var(--gap) 0;
+  padding: 0 var(--gap);
 }
 
 .drop-shadow {
