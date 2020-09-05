@@ -2,7 +2,7 @@
 image: ./images/willarrive.jpg
 tags: UXD, DEV
 headline: willarrive.in
-summary: I started my career at Compass as a frontend engineer but opporunities arose that helped shape the UX Engineer role. Now the sole enginee reporting underneath the design organization, I was originally responsible for supporting product designers in creating prototypes of their mockups.
+summary: How many clicks do you need to get to the arrival time of your train? This project tries to reduce the number of decisions to make when the next train is expected to arrive near a user's location. Think it's easy to find the time? You might be surprised.
 year: 2020
 ---
 Williamsburg prism small batch, umami cold-pressed banh mi mixtape try-hard leggings ugh pitchfork. Hot chicken vaporware lumbersexual migas small batch synth. Helvetica master cleanse hell of selvage hoodie, shabby chic mumblecore prism twee meditation quinoa ethical meh pickled 3 wolf moon. Pour-over pok pok affogato 3 wolf moon, live-edge pug gastropub godard bitters chillwave health goth lo-fi.

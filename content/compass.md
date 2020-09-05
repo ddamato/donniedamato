@@ -2,7 +2,7 @@
 image: ./images/compass.jpg
 tags: UXD, DEV
 headline: Compass
-summary: I started my career at Compass as a frontend engineer but opporunities arose that helped shape the UX Engineer role. Now the sole enginee reporting underneath the design organization, I was originally responsible for supporting product designers in creating prototypes of their mockups.
+summary: From being responsible for the CSS across the platform to creating the framework-agnostic global navigation for our products, I earned influence across the organization from nearly every angle. A leader among design and engineering teams and well known throughout the company as a person who delivered quality results.
 year: 2017
 ---
 

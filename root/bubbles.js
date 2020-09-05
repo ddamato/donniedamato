@@ -1,7 +1,7 @@
 const canvas = document.querySelector('.bubbles');
 const ctx = canvas.getContext('2d');
 const pieces = [];
-const numberOfPieces = 4;
+const numberOfPieces = 6;
 let lastUpdateTime = Date.now();
 
 function draw() {
@@ -22,7 +22,7 @@ function draw() {
 }
 
 function Piece(x, y) {
-  const min = 20;
+  const min = 8;
   const max = 200;
   const offset = 2;
 
