@@ -39,6 +39,8 @@ async function compile() {
     return { ...attributes, content, id };
   }).sort((a, b) => Number(b.year) - Number(a.year));
 
+  console.log('Project order: ', projects.map(({ id }) => id).join(', '));
+
   const index = env.render('base.njk', { 
     projects,
     title: TITLE,
