@@ -40,8 +40,8 @@ a, .link {
 
 .splash {
   display: flex;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: min(5vw, 5rem);
+  padding-bottom: min(10vw, 10rem);
 }
 
 .splash svg {
