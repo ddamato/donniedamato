@@ -37,8 +37,9 @@ async function compile() {
     const { attributes, body } = fm(markdown);
     const content = md.render(body);
     return { ...attributes, content, id };
-  }).sort((a, b) => Number(b.year) - Number(a.year));
-
+  });
+  
+  projects.sort((a, b) => Number(b.year) - Number(a.year));
   console.log('Project order: ', projects.map(({ id }) => id).join(', '));
 
   const index = env.render('base.njk', { 
