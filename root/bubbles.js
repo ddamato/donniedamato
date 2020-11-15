@@ -41,7 +41,7 @@ function Piece(x, y) {
   };
 
   this.draw = () => {
-    ctx.fillStyle = "#000";
+    ctx.fillStyle = '#000';
     ctx.beginPath();
     ctx.arc(this.x + this.dim/2, this.y + this.dim/2, this.dim / 2, 0, Math.PI * 2);
     ctx.fill();
