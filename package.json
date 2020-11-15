@@ -36,6 +36,7 @@
     "imagemin-mozjpeg": "^9.0.0",
     "ls-minifier": "^2.0.0",
     "markdown-it": "^11.0.0",
+    "markdown-it-link-attributes": "^3.0.0",
     "nunjucks": "^3.2.2",
     "rollup": "^2.23.0",
     "rollup-plugin-html": "^0.2.1",

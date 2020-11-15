@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs-extra'); 
 const fm = require('front-matter');
+const mila = require('markdown-it-link-attributes');
 const md = require('markdown-it')({
   html: true,
   linkify: true,
@@ -17,6 +18,14 @@ env.addFilter('split', (str, seperator) => str.split(seperator));
 const COMPILED_SITE_PATH = path.resolve(__dirname, '..', '_site');
 const TITLE = `Donnie D'Amato - Design Systems Architect`;
 const DESCRIPTION = `The DAMATO Design System created by Donnie D'Amato is an exploration of architecting a design system without business influence; focusing on the best practices of user experience and web engineering.`;
+
+md.use(mila, {
+  pattern: /^http/,
+  attrs: {
+    target: '_blank',
+    rel: 'noopener'
+  }
+});
 
 async function compile() {
   const contentFiles = await glob.readdirPromise('content/*.md');

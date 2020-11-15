@@ -7,6 +7,8 @@ year: 2020
 ---
 While building the [DAMATO Design](#damato) project, I found a challenge in managing icons that I once tackled before within my time at [Compass](#compass). There's a lot of ways to render icons within a webpage or across a website. I wanted to create something that could be used in many ways depending on the architecture of the website.
 
+> As a engineer, I want **a reliable way to manage icons** on a page and style them using CSS.
+
 There are several ways of providing an SVG icon (or really any SVG) on a page to allow for CSS to modify it later:
 - Inline SVG markup exactly where the icon is expected.
 - Using a reference sheet that exists on the same page and reference where the icon will be rendered.
