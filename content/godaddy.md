@@ -4,6 +4,7 @@ tags: DEV
 headline: GoDaddy
 summary: How do you create and maintain a consistent experience across a global brand which needs to be accessible, localized, and performant across several brands? GoDaddy has more challenges than I could have imagined when I started my journey in design systems.
 year: 2019
+month: 8
 ---
 A well-recognized internet company for over 30 years, the GoDaddy brand is a challenge to tame. I was brought on board to help scale an existing system of providing resellers and private labeling to allow for more customizations and experimentation. The new system allows for not only the compnent library to accept different values of color, typography, and roundness but also allows for feature developers to leverage the system for themselves and create new feature specific components with the same style. The system is also expandable to other style properties such as spacing and elevation in the future.
 

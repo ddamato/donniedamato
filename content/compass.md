@@ -4,6 +4,7 @@ tags: UXD, DEV
 headline: Compass
 summary: From being responsible for the CSS across the platform to creating the framework-agnostic global navigation for our products, I earned influence across the organization from nearly every angle. A leader among design and engineering teams and well known throughout the company as a person who delivered quality results.
 year: 2017
+month: 4
 ---
 I was originally hired as a front-end developer to work on the Agent Experience team. After making connections with co-workers and understanding the needs of my teammates, I transitioned to the UX team as their first UX engineer; initially working on prototypes and design tooling.
 

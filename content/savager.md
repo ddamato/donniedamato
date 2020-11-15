@@ -4,6 +4,7 @@ tags: DEV
 headline: Savager
 summary: Just about every website uses icons to help convey information and wayfinding. Some of the smallest components of a page are also the most difficult to manage in a simple and performant way. This project provides options for developers to maintain these assets easily.
 year: 2020
+month: 5
 ---
 While building the [DAMATO Design](#damato) project, I found a challenge in managing icons that I once tackled before within my time at [Compass](#compass). There's a lot of ways to render icons within a webpage or across a website. I wanted to create something that could be used in many ways depending on the architecture of the website.
 

@@ -4,6 +4,7 @@ tags: DEV, EDU
 headline: Galvanize
 summary: Every student is different and understanding that fact is a key to effective teaching. My unique method uncovers skills and strengths that the student has which will help make better product in this new digital world. We focus less on what the job wants you to know and more on what you want to achieve.
 year: 2018
+month: 1
 ---
 Teaching has always been a passion of mine and it's important to me that people also find their passions. While code is a booming industry with a lot of opportunity, it's important to find the right career for each individual. Sometimes the concepts that I teach will never interest a student and it's important to recognize this early. It's not about enrollment, it's about impact.
 

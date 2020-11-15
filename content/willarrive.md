@@ -4,6 +4,7 @@ tags: UXD, DEV
 headline: willarrive.in
 summary: How many clicks do you need to get to the arrival time of your train? This project tries to reduce the number of decisions to make when the next train is expected to arrive near a user's location. Think it's easy to find the time? You might be surprised.
 year: 2020
+month: 4
 ---
 Sometimes people get paralyzed by choice. This is common in navigational patterns with many options that a user can choose from. If we instead consider removing some choices from the main navigation, users may direct themselves toward their goal faster, thereby creating a better experience. This project is an exploration on how much navigation can be removed to get to a very specific user need.
 

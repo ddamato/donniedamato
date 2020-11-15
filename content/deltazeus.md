@@ -4,6 +4,7 @@ tags: UXD, DEV
 headline: deltazeus
 summary: You might think that checking the weather is a solved problem several times over. However, nearly all weather apps do the same thing; they provide absolute numbers. This solution aims to provide weather data relative to the user so they can make more personalized decisions on how to prepare for the new day.
 year: 2020
+month: 3
 ---
 If you ask this to many people, a common answer is to prepare for the day. If it's going to rain, we might need an umbrella. If it's going to be warm, I might not need a jacket. We check the weather on any of the current weather apps today and it tells us there's precipitation, or a number of degress that the high temperature will be.
 

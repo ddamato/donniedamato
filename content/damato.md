@@ -4,6 +4,7 @@ tags: UXD, DEV
 headline: DAMATO Design
 summary: What if a design system was truly focused on user needs; both for those using the product and the ones building it. What responsiblities would it have? What should it contain and how would it be made to help people achieve their goals? In this project, I explored how engineering tools and architecture can help support anticipated design needs.
 year: 2020
+month: 4
 ---
 I've been creating and working with design systems for a few years now and I've gained a great deal of knowledge and experience in that time. It seemed important to document all of the concepts that I found useful or interesting and share them with others. Often my peers and I are unable to do exactly what we want to do because of the organizations we work with so this was meant as a guide to my beliefs in design system architecture.
 

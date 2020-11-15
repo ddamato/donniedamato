@@ -4,6 +4,7 @@ tags: UXD, DEV
 headline: Next Up
 summary: When organizing a competitive event, directing your competitors to a gaming area is a challenge. The event will likely have many distractions; time is lost trying to locate them and record results accurately. This project was an attempt to solve this problem with a little bit of technology.
 year: 2014
+month: 3
 ---
 I've ran video game tournaments for a few years and one of the biggest things that will slow the event down is finding the people who are in the next match. After the first hour, many people begin taking breaks or watching other matches. Searching for the people in a tournament bracket becomes the most difficult thing that day to keep the event moving.
 
