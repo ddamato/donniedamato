@@ -5,7 +5,7 @@ const numberOfPieces = 6;
 let lastUpdateTime = Date.now();
 
 function draw() {
-
+  const now = Date.now();
   if (canvas.width !== canvas.clientWidth) {
     canvas.width = canvas.clientWidth;
   }
@@ -14,9 +14,11 @@ function draw() {
     canvas.height = canvas.clientHeight;
   }
 
-  const now = Date.now();
-  pieces.forEach((p) => p.float(now - lastUpdateTime));
-  pieces.forEach((p) => p.draw());
+  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    pieces.forEach((p) => p.float(now - lastUpdateTime));
+    pieces.forEach((p) => p.draw());
+  }
+
   lastUpdateTime = now;
 	requestAnimationFrame(draw);
 }
