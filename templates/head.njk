@@ -37,7 +37,11 @@
 
 <script type="text/javascript" defer>
   window.onload = () => 'serviceWorker' in navigator && navigator.serviceWorker.register('sw.js').then((registration) => registration.update()).catch((err) => {});
-  document.fonts.ready.then(() => document.body.classList.toggle('fontload', document.fonts.check('1em Europa-Regular')));
+  if ('fonts' in document) {
+    document.fonts.ready.then(() => document.body.classList.toggle('fontload', document.fonts.check('1em Europa-Regular')));
+  } else {
+    document.body.classList.add('fontload');
+  }
 </script>
 
 <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
