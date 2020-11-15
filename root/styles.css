@@ -19,6 +19,7 @@ body {
   background-size: cover;
   background-position: center bottom;
   background-attachment: fixed;
+  overflow-x: hidden;
 }
 
 body.fontload {
