@@ -36,16 +36,15 @@ a, .link {
   pointer-events: none;
 }
 
-.main {
-  overflow: hidden;
-  margin-bottom: -8rem;
-  padding-bottom: 8rem;
-  background-image: url(images/header.svg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center top;
-  background-size: calc(min(115%, calc(var(--maxwidth) + 140px)) - (var(--gap) * 2));
-  padding-top: min(40vw, 18rem);
+.splash {
+  display: flex;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+}
+
+.splash svg {
+  width: 100%;
+  transform: scale(1.175);
 }
 
 .carousel {
@@ -58,7 +57,7 @@ a, .link {
 
 .topic-card {
   border-radius: 1rem;
-  background: #fff;
+  background: rgba(255, 255, 255, .95);
   color: #000;
   padding: 1rem;
   flex: 1;
@@ -81,7 +80,7 @@ a, .link {
 }
 
 .project-card {
-  background: #ffffff;
+  background: rgba(255, 255, 255, .95);
   color: #000000;
   border-radius: 1rem;
   display: flex;
@@ -263,8 +262,10 @@ a, .link {
 .max-width {
   max-width: var(--maxwidth);
   width: 100%;
-  margin: 0 auto;
-  padding: 0 var(--gap);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gap);
+  padding-right: var(--gap);
 }
 
 .drop-shadow {
