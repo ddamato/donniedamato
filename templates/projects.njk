@@ -1,5 +1,5 @@
 {% for project in projects %}
-  <div class="project-card">
+  <div class="project-card" id="{{ project.id }}">
     <div class="project-image" style="background-image: url({{ project.image }})"></div>
     <div class="project-content">
       <ul class="project-tags">
