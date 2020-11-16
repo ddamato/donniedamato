@@ -16,10 +16,6 @@ body {
   background-repeat: no-repeat;
   background-position: center top;
   margin: 0;
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-body.fontload {
   font-family: europa, Helvetica, Arial, sans-serif;
 }
 
