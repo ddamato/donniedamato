@@ -11,9 +11,10 @@
 
 body {
   color: rgb(var(--onColorRGB));
+  background: rgb(var(--colorRGB));
+  background-attachment: fixed;
   margin: 0;
   font-family: Helvetica, Arial, sans-serif;
-  background: rgb(var(--colorRGB));
   overflow-x: hidden;
 }
 
@@ -24,14 +25,6 @@ body.fontload {
 a, .link {
   color: inherit;
   text-decoration: underline;
-}
-
-.bubbles {
-  position: fixed;
-  z-index: -1;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
 }
 
 .splash {
@@ -99,6 +92,8 @@ a, .link {
   background-position: center;
   background-repeat: no-repeat;
   padding-top: 8rem;
+  max-height: 360px;
+  border-bottom-right-radius: 4rem;
 }
 
 .project-content {
@@ -153,23 +148,8 @@ a, .link {
   color: rgb(var(--colorRGB));
 }
 
-.blob {
-  display: flex;
-  width: 100%;
-  height: 8rem;
-  position: sticky;
-  bottom: 0;
-  margin-bottom: -1px;
-  fill: currentColor;
-  color: rgb(var(--onColorRGB));
-  filter: contrast(.9);
-}
-
 .footer {
   padding: 2rem;
-  background: rgb(var(--onColorRGB));
-  filter: contrast(.9);
-  color: rgb(var(--colorRGB));
   font-size: .8em;
 }
 
