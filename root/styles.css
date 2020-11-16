@@ -15,6 +15,8 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center top;
+  background-image: url(./images/binary.jpg);
+  background-size: cover;
   margin: 0;
   font-family: europa, Helvetica, Arial, sans-serif;
 }
@@ -151,8 +153,9 @@ a, .link {
 }
 
 .footer {
-  padding: 2rem;
   font-size: .8em;
+  padding: 2rem;
+  background: rgb(var(--colorRGB));
 }
 
 .footer p {
@@ -173,7 +176,8 @@ a, .link {
   border-radius: 1rem;
   border-top-right-radius: 0;
   border-bottom-right-radius: 2rem;
-  max-width: 25%;
+  width: 25%;
+  min-width: 8rem;
   margin-right: var(--gap);
   object-fit: contain;
   float: left;
