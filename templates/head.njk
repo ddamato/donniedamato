@@ -35,8 +35,10 @@
 
 <script type="text/javascript" defer>
   window.onload = () => 'serviceWorker' in navigator && navigator.serviceWorker.register('sw.js').then((registration) => registration.update()).catch((err) => {});
-  if ('fonts' in document) {
-    document.fonts.ready.then(() => document.body.classList.toggle('fontload', document.fonts.check('1em Europa-Regular')));
+  if ('fonts' in document && typeof document.fonts.check === 'function') {
+    document.fonts.ready
+      .then(() => document.body.classList.toggle('fontload', document.fonts.check('1em Europa-Regular')))
+      .catch(() => document.body.classList.add('fontload'));
   } else {
     document.body.classList.add('fontload');
   }
