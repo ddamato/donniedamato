@@ -16,6 +16,7 @@ body {
   margin: 0;
   font-family: Helvetica, Arial, sans-serif;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body.fontload {
@@ -92,7 +93,7 @@ a, .link {
   background-position: center;
   background-repeat: no-repeat;
   padding-top: 8rem;
-  max-height: 360px;
+  max-height: 260px;
   border-bottom-right-radius: 4rem;
 }
 
@@ -148,6 +149,10 @@ a, .link {
   color: rgb(var(--colorRGB));
 }
 
+.project-details li {
+  margin-bottom: .5rem;
+}
+
 .footer {
   padding: 2rem;
   font-size: .8em;
@@ -155,6 +160,7 @@ a, .link {
 
 .footer p {
   margin-bottom: 0;
+  line-height: 1.5;
 }
 
 .footer-content {
@@ -163,27 +169,22 @@ a, .link {
 
 .footer-left {
   flex: 2;
-  display: flex;
-  align-items: center;
   padding-bottom: 2rem;
 }
 
 .donnie-image {
   border-radius: 1rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 2rem;
   max-width: 25%;
   margin-right: var(--gap);
   object-fit: contain;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  align-self: stretch;
+  float: left;
+  margin-bottom: var(--gap);
 }
 
 .email-address {
-  font-size: min(2em, 3vw);
-  margin-bottom: auto;
+  font-size: 2em;
   line-height: 1;
 }
 
