@@ -5,18 +5,13 @@
 :root {
   --maxwidth: 860px;
   --gap: min(2rem, 2vw);
-  --colorRGB: 255, 255, 255;
-  --onColorRGB: 0, 0, 0;
+  --colorHSL: 0, 50%, 100%;
+  --onColorHSL: 0, 0%, 0%;
 }
 
 body {
-  color: rgb(var(--onColorRGB));
-  background: rgb(var(--colorRGB));
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-image: url(./images/binary.jpg);
-  background-size: cover;
+  color: hsl(var(--onColorHSL));
+  background: hsl(var(--hue, 174), 72%, 56%);
   margin: 0;
   font-family: europa, Helvetica, Arial, sans-serif;
 }
@@ -39,11 +34,11 @@ a, .link {
 }
 
 .splash-donnie {
-  fill: rgb(var(--colorRGB));
+  fill: hsla(var(--colorHSL), .9);
 }
 
 .splash-damato {
-  fill: rgb(var(--onColorRGB));
+  fill: hsl(var(--onColorHSL));
 }
 
 .carousel {
@@ -56,7 +51,7 @@ a, .link {
 
 .topic-card {
   border-radius: 1rem;
-  background: rgba(var(--colorRGB), .95);
+  background: hsla(var(--colorHSL), .9);
   padding: 1rem;
   flex: 1;
   overflow: hidden;
@@ -70,7 +65,7 @@ a, .link {
   border-radius: 12px;
   border: 5px solid;
   position: relative;
-  background: rgb(var(--colorRGB));
+  background: hsl(var(--colorHSL));
 }
 
 .topic-card:not(:last-child) {
@@ -78,7 +73,7 @@ a, .link {
 }
 
 .project-card {
-  background: rgba(var(--colorRGB), .95);
+  background: hsla(var(--colorHSL), .9);
   border-radius: 1rem;
   display: flex;
   overflow: hidden;
@@ -114,7 +109,7 @@ a, .link {
   border: 2px solid;
   border-radius: 4px;
   font-weight: bolder;
-  background: rgb(var(--colorRGB));
+  background: hsl(var(--colorHSL));
 }
 
 .project-tag:not(:last-child) {
@@ -144,8 +139,8 @@ a, .link {
   font-size: 1.2em;
   margin: 0;
   padding: 1rem 2rem;
-  background: rgb(var(--onColorRGB));
-  color: rgb(var(--colorRGB));
+  background: hsl(var(--onColorHSL));
+  color: hsl(var(--colorHSL));
 }
 
 .project-details li {
@@ -155,7 +150,6 @@ a, .link {
 .footer {
   font-size: .8em;
   padding: 2rem;
-  background: rgb(var(--colorRGB));
 }
 
 .footer p {
@@ -219,7 +213,7 @@ a, .link {
 }
 
 .contact-social a:hover {
-  color: rgb(var(--onColorRGB));
+  color: hsl(var(--onColorHSL));
 }
 
 .contact-social a:before {
@@ -229,7 +223,7 @@ a, .link {
   height: 100%;
   top: 0;
   left: 0;
-  background: rgb(var(--colorRGB));
+  background: hsl(var(--colorHSL));
   border-radius: 2rem;
   transform: translateY(-100%) scale(.1);
   opacity: 0;

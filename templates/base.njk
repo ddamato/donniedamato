@@ -20,5 +20,10 @@
          {% include "footer.njk" %}
       </div>
     </footer>
+    <script>
+      window.addEventListener('scroll', (ev) => {
+        document.body.style.setProperty('--hue', 174 + Math.floor(window.pageYOffset / 30));
+      });
+    </script>
   </body>
 </html>
