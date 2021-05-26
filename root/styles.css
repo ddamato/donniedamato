@@ -3,17 +3,25 @@
 }
 
 :root {
-  --maxwidth: 860px;
+  --maxwidth: 960px;
   --gap: min(2rem, 2vw);
-  --colorHSL: 0, 50%, 100%;
-  --onColorHSL: 0, 0%, 0%;
+  --hilite: #FFCA1A;
+  --card: #111111;
+  --bkgd: #681A4F;
 }
 
 body {
-  color: hsl(var(--onColorHSL));
-  background: hsl(var(--hue, 174), 72%, 56%);
+  background-color: var(--bkgd);
+  background-image: url('./images/splatter.png');
+  background-size: 100%;
+  background-position-y: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
   margin: 0;
   font-family: europa, Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  line-height: 1.75;
 }
 
 a, .link {
@@ -21,10 +29,18 @@ a, .link {
   text-decoration: underline;
 }
 
+strong {
+  color: var(--hilite);
+}
+
+details summary::-webkit-details-marker {
+  color: var(--hilite);
+}
+
 .splash {
   display: flex;
   padding-top: min(5vw, 5rem);
-  padding-bottom: min(10vw, 10rem);
+  padding-bottom: min(5vw, 5rem);
   overflow: hidden;
 }
 
@@ -34,11 +50,11 @@ a, .link {
 }
 
 .splash-donnie {
-  fill: hsla(var(--colorHSL), .9);
+  fill: #fff;
 }
 
 .splash-damato {
-  fill: hsl(var(--onColorHSL));
+  fill: var(--hilite);
 }
 
 .carousel {
@@ -50,22 +66,26 @@ a, .link {
 }
 
 .topic-card {
-  border-radius: 1rem;
-  background: hsla(var(--colorHSL), .9);
-  padding: 1rem;
+  background: var(--card);
+  color: #fff;
+  padding: 1.5rem;
   flex: 1;
   overflow: hidden;
 }
 
 .topic-card h3 {
-  font-size: 2.5em;
+  font-size: 2em;
   margin: 0 0 1rem;
   display: inline-block;
-  padding: 4px 12px;
-  border-radius: 12px;
-  border: 5px solid;
+  padding: 0 .25em;
   position: relative;
-  background: hsl(var(--colorHSL));
+  background: var(--hilite);
+  color: var(--card);
+  line-height: 1;
+}
+
+.topic-card p {
+  margin: 0;
 }
 
 .topic-card:not(:last-child) {
@@ -73,10 +93,9 @@ a, .link {
 }
 
 .project-card {
-  background: hsla(var(--colorHSL), .9);
-  border-radius: 1rem;
+  --offset: 0;
+  background: var(--card);
   display: flex;
-  overflow: hidden;
   margin-top: var(--gap);
   margin-bottom: 1rem;
 }
@@ -87,8 +106,15 @@ a, .link {
   background-position: center;
   background-repeat: no-repeat;
   padding-top: 8rem;
-  max-height: 260px;
-  border-bottom-right-radius: 4rem;
+  max-height: 300px;
+  box-shadow: calc(var(--offset) * -1) calc(var(--offset) * -1) 0 var(--bkgd);
+  transform: translate(var(--offset), var(--offset));
+  border-bottom: 2px solid var(--hilite);
+  transition: .218s ease;
+}
+
+.project-card:hover {
+  --offset: -1rem;
 }
 
 .project-content {
@@ -105,20 +131,22 @@ a, .link {
 
 .project-tag {
   display: inline-block;
-  padding: 2px 6px;
-  border: 2px solid;
-  border-radius: 4px;
   font-weight: bolder;
-  background: hsl(var(--colorHSL));
+  color: var(--hilite);
 }
 
-.project-tag:not(:last-child) {
-  margin-right: 1rem;
+.project-tag:not(:last-child):after {
+  content: "+";
+  margin: 0 .25em;
+  line-height: 1;
+  display: inline-block;
+  transform: translateY(-.1em);
 }
 
 .project-headline {
   font-size: clamp(1.5em, 6vw, 3em);
-  line-height: 1.25;
+  line-height: 1;
+  margin-top: 0;
 }
 
 .project-summary:focus {
@@ -127,7 +155,7 @@ a, .link {
 
 .project-card hr {
   border-radius: 1rem;
-  background: currentColor;
+  background: var(--hilite);
   border: 0;
   height: 6px;
   margin: 1em 0;
@@ -167,9 +195,6 @@ a, .link {
 }
 
 .donnie-image {
-  border-radius: 1rem;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 2rem;
   width: 25%;
   min-width: 8rem;
   margin-right: var(--gap);
@@ -181,6 +206,9 @@ a, .link {
 .email-address {
   font-size: 2em;
   line-height: 1;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--hilite);
+  text-underline-offset: .1em;
 }
 
 .footer-right {
@@ -213,7 +241,7 @@ a, .link {
 }
 
 .contact-social a:hover {
-  color: hsl(var(--onColorHSL));
+  color: var(--hilite);
 }
 
 .contact-social a:before {
@@ -223,16 +251,17 @@ a, .link {
   height: 100%;
   top: 0;
   left: 0;
-  background: hsl(var(--colorHSL));
+  background: var(--card);
   border-radius: 2rem;
-  transform: translateY(-100%) scale(.1);
+  transform-origin: center center;
+  transform: scale(.1);
   opacity: 0;
   transition: .218s ease-out;
   pointer-events: none;
 }
 
 .contact-social a:hover:before {
-  transform: translateY(0) scale(1);
+  transform: scale(1);
   opacity: 1;
 }
 
@@ -253,7 +282,7 @@ a, .link {
 }
 
 .drop-shadow {
-  filter: drop-shadow(0 -1rem .5rem rgba(17, 17, 17, .15));
+  filter: drop-shadow(0 -1rem .5rem rgba(17, 17, 17, .25));
 }
 
 @media (max-width: 670px) {
@@ -265,5 +294,9 @@ a, .link {
   .project-card,
   .footer-content {
     flex-direction: column;
+  }
+
+  .project-card:hover {
+    --offset: 0;
   }
 }
