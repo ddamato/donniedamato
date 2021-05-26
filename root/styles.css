@@ -4,7 +4,7 @@
 
 :root {
   --maxwidth: 960px;
-  --gap: min(2rem, 2vw);
+  --gap: min(2rem, 4vw);
   --hilite: #FFCA1A;
   --card: #111111;
   --bkgd: #681A4F;
@@ -177,7 +177,6 @@ details summary::-webkit-details-marker {
 
 .footer {
   font-size: .8em;
-  padding: 2rem;
 }
 
 .footer p {
@@ -204,7 +203,7 @@ details summary::-webkit-details-marker {
 }
 
 .email-address {
-  font-size: 2em;
+  font-size: min(2em, 5vw);
   line-height: 1;
   text-decoration-thickness: 1px;
   text-decoration-color: var(--hilite);
