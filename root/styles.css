@@ -12,7 +12,7 @@
 
 body {
   background-color: var(--bkgd);
-  background-image: url('./images/splatter.png');
+  background-image: url('./images/splatter.png'), linear-gradient(to bottom,  #681a4f 0%,#380525 100%);
   background-size: 100%;
   background-position-y: top;
   background-repeat: no-repeat;
@@ -33,8 +33,8 @@ strong {
   color: var(--hilite);
 }
 
-details summary::-webkit-details-marker {
-  color: var(--hilite);
+summary {
+  cursor: pointer;
 }
 
 .splash {
@@ -75,13 +75,13 @@ details summary::-webkit-details-marker {
 
 .topic-card h3 {
   font-size: 2em;
-  margin: 0 0 1rem;
+  margin: 0 0 .25em;
   display: inline-block;
-  padding: 0 .25em;
+  padding: 0 0 .3em;
   position: relative;
-  background: var(--hilite);
-  color: var(--card);
+  color: #fff;
   line-height: 1;
+  border-bottom: 4px solid var(--hilite);
 }
 
 .topic-card p {
@@ -200,6 +200,7 @@ details summary::-webkit-details-marker {
   object-fit: contain;
   float: left;
   margin-bottom: var(--gap);
+  box-shadow: 1rem 1rem 0 var(--hilite);
 }
 
 .email-address {
