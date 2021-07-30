@@ -5,19 +5,14 @@
 :root {
   --maxwidth: 960px;
   --gap: min(2rem, 4vw);
-  --hilite: #FFCA1A;
-  --card: #111111;
-  --bkgd: #681A4F;
+  --hilite: #7d0b92;
+  --card: #fff;
+  --bkgd: #eee;
 }
 
 body {
   background-color: var(--bkgd);
-  background-image: url('./images/splatter.png'), linear-gradient(to bottom,  #681a4f 0%,#380525 100%);
-  background-size: 100%;
-  background-position-y: top;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: #fff;
+  color: #111;
   margin: 0;
   font-family: europa, Helvetica, Arial, sans-serif;
   font-size: 1.2em;
@@ -50,7 +45,7 @@ summary {
 }
 
 .splash-donnie {
-  fill: #fff;
+  fill: currentColor;
 }
 
 .splash-damato {
@@ -67,7 +62,7 @@ summary {
 
 .topic-card {
   background: var(--card);
-  color: #fff;
+  color: currentColor;
   padding: 1.5rem;
   flex: 1;
   overflow: hidden;
@@ -79,7 +74,7 @@ summary {
   display: inline-block;
   padding: 0 0 .3em;
   position: relative;
-  color: #fff;
+  color: currentColor;
   line-height: 1;
   border-bottom: 4px solid var(--hilite);
 }
