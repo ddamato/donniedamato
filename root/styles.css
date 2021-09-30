@@ -5,7 +5,7 @@
 :root {
   --maxwidth: 960px;
   --gap: min(2rem, 4vw);
-  --hilite: #7d0b92;
+  --hilite: #ff0080;
   --card: #fff;
   --bkgd: #eee;
 }
