@@ -1,6 +1,7 @@
 ---
 image: ./images/savager.jpg
-tags: DEV
+tags: 
+  - DEV
 headline: Savager
 summary: Just about every website uses icons to help convey information and wayfinding. Some of the smallest components of a page are also the most difficult to manage in a simple and performant way. This project provides options for developers to maintain these assets easily.
 year: 2020

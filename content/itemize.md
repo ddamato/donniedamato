@@ -1,6 +1,8 @@
 ---
 image: ./images/itemize.jpg
-tags: UXD, DEV
+tags: 
+  - UXD
+  - DEV
 headline: Itemize
 summary: A side project leveraging modern development techniques at the company turned into a full site-wide application rewrite. I was able to prototype workflow possibilities faster than other teams could fully realize the potential. This was only the beginning of my responsibilities to come.
 year: 2015

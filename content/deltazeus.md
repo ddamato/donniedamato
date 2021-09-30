@@ -1,6 +1,8 @@
 ---
 image: ./images/deltazeus.jpg
-tags: UXD, DEV
+tags: 
+  - UXD
+  - DEV
 headline: deltazeus
 summary: You might think that checking the weather is a solved problem several times over. However, nearly all weather apps do the same thing; they provide absolute numbers. This solution aims to provide weather data relative to the user so they can make more personalized decisions on how to prepare for the new day.
 year: 2020

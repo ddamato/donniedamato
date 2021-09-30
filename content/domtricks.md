@@ -1,6 +1,8 @@
 ---
 image: ./images/domtricks.jpg
-tags: UXD, DEV
+tags: 
+  - UXD
+  - DEV
 headline: DOM Tricks
 summary: When engineers write documentation, they often write code twice. Once as inert documentation and again as executable code. This project aims to surface the real comments and code together as the final documentation. This is also a home for useful techniques I find in front-end development.
 year: 2020

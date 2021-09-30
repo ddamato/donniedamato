@@ -1,6 +1,8 @@
 ---
 image: ./images/parsons.jpg
-tags: UXD, EDU
+tags: 
+  - UXD
+  - EDU
 headline: Parsons
 summary: Teach a person user experience and the world will benefit. I facilitate a course that begins a student's journey into user experience at Parsons School of Design. The subject matter centers on gathering facts in different approaches to make data-driven product decisions that meet user needs.
 year: 2019

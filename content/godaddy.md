@@ -1,6 +1,7 @@
 ---
 image: ./images/godaddy.jpg
-tags: DEV
+tags: 
+  - DEV
 headline: GoDaddy
 summary: How do you create and maintain a consistent experience across a global brand which needs to be accessible, localized, and performant across several brands? GoDaddy has more challenges than I could have imagined when I started my journey in design systems.
 year: 2019

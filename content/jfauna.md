@@ -1,6 +1,7 @@
 ---
 image: ./images/jfauna.jpg
-tags: DEV
+tags: 
+  - DEV
 headline: jFauna
 summary: Databases are hard to use. They are able to manipulate data in really performant ways but at the cost of deeply knowing the often confusing syntax. This project was a journey into creating a more accessible framework for accessing a commonly used database solution while learning about a new language in the process.
 year: 2021

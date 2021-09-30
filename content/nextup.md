@@ -1,6 +1,8 @@
 ---
 image: ./images/nextup.jpg
-tags: UXD, DEV
+tags:
+  - UXD
+  - DEV
 headline: Next Up
 summary: When organizing a competitive event, directing your competitors to a gaming area is a challenge. The event will likely have many distractions; time is lost trying to locate them and record results accurately. This project was an attempt to solve this problem with a little bit of technology.
 year: 2014

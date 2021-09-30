@@ -1,6 +1,8 @@
 ---
 image: ./images/galvanize.jpg
-tags: DEV, EDU
+tags: 
+  - DEV
+  - EDU
 headline: Galvanize
 summary: Every student is different and understanding that fact is a key to effective teaching. My unique method uncovers skills and strengths that the student has which will help make better product in this new digital world. We focus less on what the job wants you to know and more on what you want to achieve.
 year: 2018

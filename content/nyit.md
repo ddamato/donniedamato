@@ -1,6 +1,7 @@
 ---
 image: ./images/nyit.jpg
-tags: EDU
+tags: 
+  - EDU
 headline: NYIT
 summary: After finishing my Masters degree, I was asked by the chair of the Communication Arts department to teach new students about live event production as I had experience in the entertainment industry prior to college. Together we created a curriculum that continues to exhibit how much being prepared can affect the value of the final outcome. 
 year: 2014
