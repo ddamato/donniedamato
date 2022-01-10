@@ -2,9 +2,9 @@ let blockColor = 'var(--blockcolor)';
 let pegColor = 'var(--pegcolor)';
 let pegFace = 'var(--pegface)';
 
-blockColor = '#f8f8f8';
-pegColor = '#f0f0f0';
-pegFace = '#f8f8f8';
+blockColor = '#0095b8';
+pegColor = '#00489b';
+pegFace = '#0095b8';
 
 const illo = new Zdog.Illustration({
 	// set canvas with selector
@@ -105,13 +105,13 @@ block.copyGraph({
 
 
 function animate() {
-	illo.rotate.y += 0.001; 
+	// illo.rotate.y += 0.001; 
 	illo.updateRenderGraph();
 	requestAnimationFrame(animate);
 }
 
 illo.updateRenderGraph();
 
-if (window.navigator.hardwareConcurrency > 8) {
-	animate();
+if (window.navigator.hardwareConcurrency >= 8) {
+	// animate();
 }
