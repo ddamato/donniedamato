@@ -8,7 +8,7 @@
 
 :root {
 
-  --bgcolor-start: rgb(0, 18, 106);
+  --bgcolor-start: #00126a;
   --bgcolor-end: #00489b;
   --bgcolor-contrast: #ffffeb;
   --bgcolor-overlay: rgba(0, 72, 155, .8);
