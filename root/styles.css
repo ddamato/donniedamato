@@ -90,6 +90,10 @@ hr {
   text-align: justify;
 }
 
+.caboose {
+  margin-bottom: 10vw;
+}
+
 .max-width {
   max-width: 800px;
   margin-left: auto;
@@ -127,6 +131,8 @@ hr {
   font-weight: 400;
   letter-spacing: .1em;
   text-transform: uppercase;
+  padding-top: .5em;
+  padding-bottom: .5em;
 }
 
 .overline {
@@ -140,7 +146,9 @@ hr {
 
 .hero {
   position: relative;
-  margin: 1em 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: -4px;
 }
 
 /* layout - split */
@@ -279,7 +287,6 @@ header {
   position: sticky;
   top: 0;
   z-index: 1;
-  padding: 1rem;
 }
 
 .header {
@@ -294,6 +301,9 @@ header {
   color: inherit;
   text-decoration: none;
   font-size: 1.5rem;
+  padding: 1rem;
+  transition: background .218s ease;
+  background: var(--color-accent);
 }
 
 /* components - topic cards */
@@ -315,7 +325,8 @@ header {
 }
 
 .topic-card h3 {
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   margin: 0;
   background: var(--bgcolor-end);
   margin-bottom: 1px;
