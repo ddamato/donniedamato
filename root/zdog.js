@@ -2,16 +2,15 @@ let blockColor = 'var(--blockcolor)';
 let pegColor = 'var(--pegcolor)';
 let pegFace = 'var(--pegface)';
 
-blockColor = '#0095b8';
-pegColor = '#00489b';
-pegFace = '#0095b8';
+blockColor = 'rgb(9, 83, 156)';
+pegColor = 'rgb(8, 75 ,152)';
+pegFace = 'rgb(9, 83, 156)';
 
 const illo = new Zdog.Illustration({
 	// set canvas with selector
 	element: ".zdog-illustration",
 	zoom: 16,
 	resize: true,
-	translate: { x: 0, y: -3 },
 	rotate: { 
 		x: -Zdog.TAU/12,
 		y: Zdog.TAU/8,
@@ -69,43 +68,8 @@ peg.copy({
 });
 
 
-/* ====================== */
-
-block.copyGraph({
-	translate: { x: -6, y: 30, z: 6 },
-	rotate:{ y: Zdog.TAU/4 }
-});
-
-block.copyGraph({
-	translate: { x: 0, y: -18, z: -18 },
-	rotate:{ y: Zdog.TAU/4 }
-});
-
-block.copyGraph({
-	translate: { x: 12, y: 18, z: 36 },
-});
-
-block.copyGraph({
-	translate: { x: -36, y: 18, z: 24 },
-});
-
-block.copyGraph({
-	translate: { x: -24, y: -12, z: 18 },
-	rotate:{ y: Zdog.TAU/4 }
-});
-
-block.copyGraph({
-	translate: { x: -6, y: 18, z: -56 },
-	rotate:{ y: Zdog.TAU/4 }
-});
-
-block.copyGraph({
-	translate: { x: 18, y: 30, z: -30 },
-});
-
-
 function animate() {
-	// illo.rotate.y += 0.001; 
+	illo.rotate.y += 0.001; 
 	illo.updateRenderGraph();
 	requestAnimationFrame(animate);
 }
@@ -113,5 +77,5 @@ function animate() {
 illo.updateRenderGraph();
 
 if (window.navigator.hardwareConcurrency >= 8) {
-	// animate();
+	animate();
 }
