@@ -55,6 +55,13 @@ strong {
 svg {
   width: 1em;
   fill: currentColor;
+  display: flex;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px dashed var(--color-accent);
+  flex: 1;
 }
 
 :focus {
@@ -66,6 +73,17 @@ svg {
 
 .center {
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.center:before,
+.center:after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px dashed var(--color-accent);
+  transform: translateY(-50%);
 }
 
 .justify {
@@ -78,8 +96,9 @@ svg {
   margin-right: auto;
 }
 
-.inset-padding {
-  padding: 1rem;
+.content-padding {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .feature {
@@ -93,43 +112,35 @@ svg {
   overflow: hidden;
 }
 
-.button {
-  border: 1px solid;
-  box-shadow: var(--shadow);
-  color: inherit;
-  text-decoration: none;
-  padding: 0.5em 1em;
-  font-weight: 600;
-  font-size: 0.8em;
-  white-space: nowrap;
-  transition: background .218s ease;
-}
-
-.button:hover {
-  background: var(--color-accent);
-}
-
 /* typography */
 
 .headline {
   font-family: Teko, sans-serif;
-  font-size: 7rem;
+  font-size: min(7rem, 25vw);
   line-height: 0.75;
   font-weight: 400;
   margin: 0;
+  position: relative;
 }
 
 .title {
-  font-weight: normal;
+  font-weight: 400;
   letter-spacing: .1em;
   text-transform: uppercase;
 }
 
 .overline {
-  display: inline-block;
+  display: block;
   font-weight: 400;
   font-size: .8em;
   color: var(--color-accent);
+  margin-bottom: 1em;
+  margin-left: -1px;
+}
+
+.hero {
+  position: relative;
+  margin: 1em 0;
 }
 
 /* layout - split */
@@ -149,12 +160,40 @@ svg {
   width: calc((var(--threshold) - 100%) * 100000);
 }
 
+/* blueprint appearance */
+
+.blueprint {
+  position: relative;
+  border: 1px dashed var(--color-accent);
+}
+
+.blueprint:before,
+.blueprint:after   {
+  position: absolute;
+  content: '';
+  display: block;
+  height: 2rem;
+  width: 2rem;
+}
+
+.blueprint:before {
+  border-bottom: inherit;
+  border-left: inherit;
+  bottom: 100%;
+  left: 100%;
+}
+
+.blueprint:after {
+  border-top: inherit;
+  border-right: inherit;
+  top: 100%;
+  right: 100%;
+}
+
 /* components - callout */ 
 
 .callout {
   background: var(--bgcolor-overlay);
-  position: relative;
-  border: 1px dashed var(--color-accent);
 }
 
 .callout .overline {
@@ -169,7 +208,9 @@ svg {
 
 .callout p {
   margin: 1rem;
-  max-width: 30ch;
+  font-family: monospace;
+  line-height: 1.5;
+  font-size: 1.2em
 }
 
 .callout a {
@@ -201,12 +242,6 @@ svg {
 
 .callout a:hover span {
   background: var(--color-accent);
-}
-
-.callout a hr {
-  border: 0;
-  border-bottom: 1px dashed var(--color-accent);
-  flex: 1;
 }
 
 /* components - logo group */
@@ -244,6 +279,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1;
+  padding: 1rem;
 }
 
 .header {
@@ -254,12 +290,20 @@ header {
   gap: 1rem;
 }
 
+.chat-button {
+  color: inherit;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
 /* components - topic cards */
 
 .topic-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
   gap: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .topic-card {
@@ -304,21 +348,20 @@ header {
 
 /* components - footer */
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 4rem;
+footer > div {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .contact-social {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.contact-social > div {
   display: flex;
-  gap: 0.5rem;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: space-around;
 }
 
 .contact-social a {
@@ -337,12 +380,21 @@ header {
   width: 1em;
 }
 
+.copyright {
+  font-family: monospace;
+  font-size: .8em;
+  text-align: right;
+  margin: 1rem 0 0;
+}
+
+/* illustrations */
+
 .brick-illustration svg {
   filter: grayscale(1);
   mix-blend-mode: soft-light;
   position: absolute;
   top: 0;
-  right: 1rem;
+  right: 2rem;
   height: 100%;
   width: auto;
 }
