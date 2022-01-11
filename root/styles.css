@@ -28,8 +28,9 @@ html {
 }
 
 a {
-  color: currentColor;
+  color: yellow;
   cursor: pointer;
+  text-underline-offset: 2px;
 }
 
 body {
@@ -49,7 +50,7 @@ section {
 }
 
 strong {
-  color: var(--color-accent);
+  color: yellow;
 }
 
 svg {
@@ -185,15 +186,15 @@ hr {
 }
 
 .blueprint:before {
-  border-bottom: inherit;
-  border-left: inherit;
+  border-bottom: 1px dashed var(--color-accent);
+  border-left: 1px dashed var(--color-accent);
   bottom: 100%;
   left: 100%;
 }
 
 .blueprint:after {
-  border-top: inherit;
-  border-right: inherit;
+  border-top: 1px dashed var(--color-accent);
+  border-right: 1px dashed var(--color-accent);
   top: 100%;
   right: 100%;
 }
@@ -216,9 +217,10 @@ hr {
 
 .callout p {
   margin: 1rem;
-  font-family: monospace;
   line-height: 1.5;
-  font-size: 1.2em
+  max-width: 32ch;
+  /* font-family: serif; */
+  /* font-size: 1.2em */
 }
 
 .callout a {
@@ -238,7 +240,7 @@ hr {
 }
 
 .callout a span {
-  border: 1px solid;
+  border: 1px solid yellow;
   padding: .5em 1em;
   transition: background .218s ease;
 }
@@ -361,6 +363,14 @@ header {
 footer > div {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+footer .blueprint {
+  border-bottom: 0;
+}
+
+footer .blueprint:after {
+  display: none;
 }
 
 .contact-social {
