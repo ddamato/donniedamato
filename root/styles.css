@@ -322,6 +322,8 @@ header {
   box-shadow: var(--shadow);
   font-size: 0.8em;
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .topic-card h3 {
@@ -338,7 +340,7 @@ header {
   padding: 1rem;
   line-height: 1.5;
   padding-bottom: 3rem;
-  margin-bottom: -3rem;
+  margin-bottom: -2rem;
   clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
   background: var(--bgcolor-end);
 }
@@ -350,6 +352,7 @@ header {
   background: var(--bgcolor-overlay);
   color: inherit;
   margin: 1rem;
+  margin-top: auto;
   margin-left: auto;
 }
 
