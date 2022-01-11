@@ -345,14 +345,12 @@ header {
   margin-bottom: -2rem;
   clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
   background: var(--bgcolor-end);
+  flex: 1;
 }
 
 .topic-card svg {
-  font-size: 3rem;
-  padding: .1em;
-  border-radius: 100%;
-  background: var(--bgcolor-overlay);
-  color: inherit;
+  font-size: 2rem;
+  color: var(--color-accent);
   margin: 1rem;
   margin-top: auto;
   margin-left: auto;
@@ -386,13 +384,12 @@ footer .blueprint:after {
 
 .contact-social a {
   padding: 1em;
-  color: inherit;
+  color: var(--color-accent);
   display: flex;
-  opacity: 0.6;
 }
 
 .contact-social a:hover {
-  opacity: 1;
+  color: var(--bgcolor-contrast);
 }
 
 .contact-social svg {
