@@ -141,7 +141,7 @@ hr {
   display: block;
   font-weight: 400;
   font-size: .8em;
-  color: var(--color-accent);
+  /* color: var(--color-accent); */
   margin-bottom: 1em;
   margin-left: -1px;
 }
@@ -362,6 +362,7 @@ header {
 footer > div {
   padding-top: 2rem;
   padding-bottom: 2rem;
+  color: var(--color-accent);
 }
 
 footer .blueprint {
@@ -385,7 +386,7 @@ footer .blueprint:after {
 
 .contact-social a {
   padding: 1em;
-  color: var(--color-accent);
+  color: inherit;
   display: flex;
 }
 
