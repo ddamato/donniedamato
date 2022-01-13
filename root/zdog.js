@@ -68,14 +68,14 @@ peg.copy({
 });
 
 
+let t0 = performance.now();
 function animate() {
-	illo.rotate.y += 0.001; 
 	illo.updateRenderGraph();
+	const t1 = performance.now();
+	illo.rotate.y += 0.001; 
+	if (t1 - t0 > 200) return;
 	requestAnimationFrame(animate);
+	t0 = t1;
 }
 
-illo.updateRenderGraph();
-
-if (window.navigator.hardwareConcurrency >= 8) {
-	animate();
-}
+animate();
