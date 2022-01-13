@@ -1,6 +1,7 @@
 {
     "name": "Donnie D'Amato",
     "short_name": "Donnie D'Amato",
+    "start_url": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
