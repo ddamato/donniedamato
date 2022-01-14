@@ -65,6 +65,10 @@ hr {
   flex: 1;
 }
 
+abbr {
+  text-decoration: none;
+}
+
 :focus {
   outline: 1px dashed yellow;
   outline-offset: 2px;
