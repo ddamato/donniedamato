@@ -137,8 +137,6 @@ abbr {
   letter-spacing: .1em;
   line-height: 1;
   text-transform: uppercase;
-  padding-top: .5em;
-  padding-bottom: .5em;
 }
 
 .overline {
@@ -318,7 +316,7 @@ header {
 .topic-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
-  gap: 2rem;
+  gap: 3rem;
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
@@ -326,19 +324,11 @@ header {
 .topic-card {
   overflow: hidden;
   position: relative;
-  box-shadow: var(--shadow);
   font-size: 0.8em;
   flex: 1;
   display: flex;
   flex-direction: column;
-}
-
-.topic-card h3 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin: 0;
-  background: var(--bgcolor-end);
-  border-bottom: 1px solid var(--bgcolor-start);
+  filter: drop-shadow(var(--shadow));
 }
 
 .topic-card p {
@@ -356,9 +346,7 @@ header {
 .topic-card svg {
   font-size: 2rem;
   color: var(--color-accent);
-  margin: 1rem;
-  margin-top: auto;
-  margin-left: auto;
+  margin: auto 1rem 0 auto;
 }
 
 /* components - footer */
