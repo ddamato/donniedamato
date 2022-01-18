@@ -100,7 +100,7 @@ abbr {
 }
 
 .max-width {
-  max-width: 800px;
+  max-width: 80ch;
   margin-left: auto;
   margin-right: auto;
 }
